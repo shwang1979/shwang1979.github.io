@@ -41,6 +41,34 @@ function bindEvents() {
   // 重新開始按鈕
   uiController.restartBtn.addEventListener('click', startGame);
 
+  // 模式選擇
+  uiController.modeOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      // 移除所有 active 狀態
+      uiController.modeOptions.forEach(opt => opt.classList.remove('active'));
+      // 添加 active 到選中的選項
+      option.classList.add('active');
+      
+      // 如果選擇固定難度模式，顯示難度選擇
+      const mode = option.getAttribute('data-mode');
+      if (mode === 'fixed') {
+        uiController.difficultySelection.style.display = 'block';
+      } else {
+        uiController.difficultySelection.style.display = 'none';
+      }
+    });
+  });
+
+  // 難度選擇
+  uiController.difficultyOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      // 移除所有 active 狀態
+      uiController.difficultyOptions.forEach(opt => opt.classList.remove('active'));
+      // 添加 active 到選中的選項
+      option.classList.add('active');
+    });
+  });
+
   // 鍵盤輸入支援
   document.addEventListener('keydown', handleKeyPress);
 }
@@ -58,11 +86,17 @@ function startGame() {
   // 重置 UI
   uiController.reset();
 
+  // 取得使用者選擇的模式和難度
+  const mode = uiController.getSelectedMode();
+  const gameLevel = mode === 'fixed' ? uiController.getSelectedDifficulty() : undefined;
+
   // 開始新遊戲
   gameEngine.startGame({
     totalQuestions: 10,
     minTable: 1,
-    maxTable: 9
+    maxTable: 9,
+    mode: mode,
+    gameLevel: gameLevel
   });
 
   // 顯示遊戲畫面

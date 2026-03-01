@@ -15,6 +15,56 @@
         <div class="start-content">
           <h1 class="game-title">🎮 九九乘法表遊戲</h1>
           <p class="game-subtitle">準備好挑戰了嗎？</p>
+          
+          <!-- 遊戲模式選擇 -->
+          <div class="mode-selection">
+            <h3 class="selection-title">選擇遊戲模式</h3>
+            <div class="mode-options">
+              <div class="mode-option active" data-mode="progression">
+                <div class="option-icon">🎯</div>
+                <div class="option-content">
+                  <div class="option-title">晉級模式</div>
+                  <div class="option-desc">從Level 1開始，挑戰晉級！</div>
+                </div>
+              </div>
+              <div class="mode-option" data-mode="fixed">
+                <div class="option-icon">🎲</div>
+                <div class="option-content">
+                  <div class="option-title">難度選擇</div>
+                  <div class="option-desc">選擇固定難度挑戰</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 難度選擇（固定難度模式才顯示） -->
+          <div class="difficulty-selection" id="difficulty-selection" style="display: none;">
+            <h3 class="selection-title">選擇難度等級</h3>
+            <div class="difficulty-options">
+              <div class="difficulty-option active" data-level="1">
+                <div class="difficulty-badge level-1">Level 1</div>
+                <div class="difficulty-info">
+                  <div class="difficulty-time">⏱️ 7 秒</div>
+                  <div class="difficulty-desc">完整題目</div>
+                </div>
+              </div>
+              <div class="difficulty-option" data-level="2">
+                <div class="difficulty-badge level-2">Level 2</div>
+                <div class="difficulty-info">
+                  <div class="difficulty-time">⏱️ 5 秒</div>
+                  <div class="difficulty-desc">排除 1-2</div>
+                </div>
+              </div>
+              <div class="difficulty-option" data-level="3">
+                <div class="difficulty-badge level-3">Level 3</div>
+                <div class="difficulty-info">
+                  <div class="difficulty-time">⏱️ 3 秒</div>
+                  <div class="difficulty-desc">排除 1-4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <button id="start-btn" class="btn btn-large btn-primary">
             開始遊戲 🚀
           </button>

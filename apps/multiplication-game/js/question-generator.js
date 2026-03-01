@@ -12,9 +12,10 @@ class QuestionGenerator {
    * 生成一個新的乘法題目
    * @param {number} minTable - 最小乘法表 (預設 1)
    * @param {number} maxTable - 最大乘法表 (預設 9)
+   * @param {Array<number>} excludeNumbers - 要排除的數字陣列 (預設 [])
    * @returns {Object} 題目物件 {multiplicand, multiplier, answer}
    */
-  generateQuestion(minTable = 1, maxTable = 9) {
+  generateQuestion(minTable = 1, maxTable = 9, excludeNumbers = []) {
     let multiplicand, multiplier, answer;
     let questionKey;
     let attempts = 0;
@@ -22,8 +23,8 @@ class QuestionGenerator {
 
     // 嘗試生成一個尚未使用的題目
     do {
-      multiplicand = this.getRandomNumber(minTable, maxTable);
-      multiplier = this.getRandomNumber(minTable, maxTable);
+      multiplicand = this.getRandomNumber(minTable, maxTable, excludeNumbers);
+      multiplier = this.getRandomNumber(minTable, maxTable, excludeNumbers);
       answer = multiplicand * multiplier;
       questionKey = `${multiplicand}x${multiplier}`;
       attempts++;
@@ -85,10 +86,26 @@ class QuestionGenerator {
    * 獲取隨機數字
    * @param {number} min - 最小值
    * @param {number} max - 最大值
+   * @param {Array<number>} excludeNumbers - 要排除的數字陣列 (預設 [])
    * @returns {number} 隨機數字
    */
-  getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  getRandomNumber(min, max, excludeNumbers = []) {
+    // 生成可用數字範圍
+    const availableNumbers = [];
+    for (let i = min; i <= max; i++) {
+      if (!excludeNumbers.includes(i)) {
+        availableNumbers.push(i);
+      }
+    }
+    
+    // 如果沒有可用數字，返回 min
+    if (availableNumbers.length === 0) {
+      return min;
+    }
+    
+    // 從可用數字中隨機選擇
+    const randomIndex = Math.floor(Math.random() * availableNumbers.length);
+    return availableNumbers[randomIndex];
   }
 
   /**

@@ -85,6 +85,137 @@ body {
   margin-bottom: 40px;
 }
 
+/* 模式選擇 */
+.mode-selection,
+.difficulty-selection {
+  margin-bottom: 32px;
+}
+
+.selection-title {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.mode-options {
+  display: grid;
+  gap: 12px;
+}
+
+.mode-option {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.mode-option:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-small);
+}
+
+.mode-option.active {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(126, 211, 33, 0.1));
+  box-shadow: var(--shadow-small);
+}
+
+.option-icon {
+  font-size: 2.5rem;
+  margin-right: 16px;
+}
+
+.option-content {
+  text-align: left;
+  flex: 1;
+}
+
+.option-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.option-desc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* 難度選擇 */
+.difficulty-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.difficulty-option {
+  padding: 16px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  text-align: center;
+}
+
+.difficulty-option:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-small);
+}
+
+.difficulty-option.active {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(126, 211, 33, 0.1));
+  box-shadow: var(--shadow-small);
+}
+
+.difficulty-badge {
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-small);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.difficulty-badge.level-1 {
+  background: linear-gradient(135deg, #7ED321, #5FA31A);
+  color: white;
+}
+
+.difficulty-badge.level-2 {
+  background: linear-gradient(135deg, #F5A623, #FF8C00);
+  color: white;
+}
+
+.difficulty-badge.level-3 {
+  background: linear-gradient(135deg, #FF6B6B, #D32F2F);
+  color: white;
+}
+
+.difficulty-info {
+  font-size: 0.9rem;
+}
+
+.difficulty-time {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.difficulty-desc {
+  color: #666;
+  font-size: 0.85rem;
+}
+
 .back-link {
   display: inline-block;
   margin-top: 24px;

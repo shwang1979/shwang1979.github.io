@@ -21,6 +21,9 @@ class UIController {
 
     // 開始畫面
     this.startBtn = document.getElementById('start-btn');
+    this.modeOptions = document.querySelectorAll('.mode-option');
+    this.difficultySelection = document.getElementById('difficulty-selection');
+    this.difficultyOptions = document.querySelectorAll('.difficulty-option');
 
     // 遊戲畫面
     this.backBtn = document.getElementById('back-btn');
@@ -351,6 +354,24 @@ this.answerDisplay = document.getElementById('answer-display');
    */
   getCurrentAnswer() {
     return this.currentAnswer;
+  }
+
+  /**
+   * 取得選擇的遊戲模式
+   * @returns {string} 'progression' | 'fixed'
+   */
+  getSelectedMode() {
+    const activeMode = document.querySelector('.mode-option.active');
+    return activeMode ? activeMode.getAttribute('data-mode') : 'progression';
+  }
+
+  /**
+   * 取得選擇的難度等級
+   * @returns {number} 1 | 2 | 3
+   */
+  getSelectedDifficulty() {
+    const activeDifficulty = document.querySelector('.difficulty-option.active');
+    return activeDifficulty ? parseInt(activeDifficulty.getAttribute('data-level')) : 1;
   }
 }
 

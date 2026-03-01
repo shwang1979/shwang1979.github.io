@@ -25,6 +25,9 @@ class GameEngine {
     this.questionStartTime = null;
     this.isGameActive = false;
     
+    // 遊戲模式
+    this.mode = 'progression'; // 'progression' | 'fixed'
+    
     // 等級系統
     this.level = 1;
     this.maxLevel = 3;
@@ -34,7 +37,7 @@ class GameEngine {
       2: 250   // Level 2→3 需要 250 分
     };
     this.levelTimeLimits = {
-      1: 10,   // Level 1: 10 秒
+      1: 7,   // Level 1: 7 秒
       2: 5,    // Level 2: 5 秒
       3: 3     // Level 3: 3 秒
     };
@@ -52,6 +55,15 @@ class GameEngine {
     this.minTable = options.minTable || 1;
     this.maxTable = options.maxTable || 9;
     
+    // 設定遊戲模式
+    this.mode = options.mode || 'progression';
+    
+    // 如果是固定難度模式，設定等級
+    if (this.mode === 'fixed' && options.gameLevel) {
+      this.level = options.gameLevel;
+      this.maxLevelReached = options.gameLevel;
+    }
+    
     this.isGameActive = true;
     this.startTime = Date.now();
     
@@ -68,14 +80,31 @@ class GameEngine {
       return null;
     }
 
+    // 根據等級決定要排除的數字
+    const excludeNumbers = this.getExcludeNumbers();
+    
     this.currentQuestion = this.questionGenerator.generateQuestion(
       this.minTable,
-      this.maxTable
+      this.maxTable,
+      excludeNumbers
     );
     this.currentQuestionIndex++;
     this.questionStartTime = Date.now();
 
     return this.currentQuestion;
+  }
+
+  /**
+   * 取得當前等級應排除的數字
+   * @returns {Array<number>} 要排除的數字陣列
+   */
+  getExcludeNumbers() {
+    const excludeMap = {
+      1: [],           // Level 1: 不排除任何數字
+      2: [1, 2],       // Level 2: 排除 1-2
+      3: [1, 2, 3, 4]  // Level 3: 排除 1-4
+    };
+    return excludeMap[this.level] || [];
   }
 
   /**
@@ -235,6 +264,11 @@ class GameEngine {
    * @returns {Object} 進級結果 {leveledUp, newLevel, timeLimit}
    */
   checkLevelUp() {
+    // 只有晉級模式才可以升級
+    if (this.mode !== 'progression') {
+      return { leveledUp: false };
+    }
+    
     if (this.level < this.maxLevel) {
       const threshold = this.levelScoreThresholds[this.level];
       if (this.score >= threshold) {
