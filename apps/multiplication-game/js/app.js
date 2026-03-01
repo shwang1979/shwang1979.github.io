@@ -41,6 +41,15 @@ function bindEvents() {
   // 重新開始按鈕
   uiController.restartBtn.addEventListener('click', startGame);
 
+  // 返回開始畫面按鈕
+  const backToStartBtn = document.getElementById('back-to-start-btn');
+  if (backToStartBtn) {
+    backToStartBtn.addEventListener('click', () => {
+      uiController.showScreen('start');
+      gameEngine.reset();
+    });
+  }
+
   // 模式選擇
   uiController.modeOptions.forEach(option => {
     option.addEventListener('click', () => {
