@@ -1,0 +1,576 @@
+/* 創意蓋房子遊戲 - 主樣式 */
+
+:root {
+  /* 主色調 - 明亮友善 */
+  --color-primary: #6C5CE7;
+  --color-secondary: #00B894;
+  --color-accent: #FD79A8;
+  --color-warning: #FDCB6E;
+  --color-info: #74B9FF;
+  
+  /* 中性色 */
+  --color-bg: #F8F9FA;
+  --color-surface: #FFFFFF;
+  --color-text: #2D3436;
+  --color-text-light: #636E72;
+  --color-border: #DFE6E9;
+  
+  /* 漸變 */
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --panel-gradient: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%);
+  
+  /* 間距 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* 圓角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  
+  /* 陰影 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  
+  /* 動畫時間 */
+  --transition-fast: 0.15s;
+  --transition-normal: 0.3s;
+  --transition-slow: 0.5s;
+}
+
+/* 全域樣式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* 應用容器 */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 屏幕管理 */
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== 開始畫面 ===== */
+#start-screen {
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg);
+}
+
+.start-content {
+  text-align: center;
+  background: var(--color-surface);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  width: 100%;
+}
+
+.game-title {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+}
+
+.game-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 模式選擇 */
+.mode-selection {
+  margin-bottom: var(--spacing-xl);
+}
+
+.selection-title {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.mode-options {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mode-card {
+  flex: 1;
+  min-width: 200px;
+  background: var(--color-bg);
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: left;
+}
+
+.mode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.mode-card.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.mode-card.active .mode-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mode-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.mode-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.mode-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* 按鈕樣式 */
+.btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-large {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #5f4fd1;
+  box-shadow: var(--shadow-md);
+}
+
+.icon-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.icon-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.icon-btn.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: var(--spacing-lg);
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--color-primary);
+}
+
+/* ===== 建造畫面 ===== */
+#build-screen,
+#challenge-screen {
+  background: var(--color-bg);
+}
+
+/* 工具欄 */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mode-label {
+  color: var(--color-primary);
+}
+
+.challenge-level {
+  margin-left: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--color-accent);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* 挑戰說明 */
+.challenge-info {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-info);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challenge-description {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.challenge-progress {
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+/* 建造工作區 */
+.build-workspace {
+  display: flex;
+  height: calc(100vh - 60px); /* 減去工具欄高度 */
+  overflow: hidden;
+}
+
+#challenge-screen .build-workspace {
+  height: calc(100vh - 120px); /* 減去工具欄和挑戰說明高度 */
+}
+
+/* 元件面板 */
+.component-panel {
+  width: 250px;
+  background: var(--color-surface);
+  border-right: 2px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: var(--spacing-md);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.panel-header h3 {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.component-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.category-tab {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.85rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.category-tab:hover {
+  border-color: var(--color-primary);
+}
+
+.category-tab.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.component-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-sm);
+}
+
+.component-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: grab;
+  transition: all var(--transition-fast);
+}
+
+.component-item:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-primary);
+}
+
+.component-item:active {
+  cursor: grabbing;
+}
+
+.component-preview {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.component-name {
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* 畫布區域 */
+.canvas-area {
+  flex: 1;
+  position: relative;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.build-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: white;
+}
+
+.grid-visible {
+  display: block;
+}
+
+.grid-hidden {
+  display: none;
+}
+
+.effects-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 屬性面板 */
+.properties-panel {
+  width: 200px;
+  background: var(--color-surface);
+  border-left: 2px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.stats-container {
+  padding: var(--spacing-md);
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* 要求容器 */
+.requirements-container {
+  padding: var(--spacing-md);
+}
+
+.requirement-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+}
+
+.requirement-item.completed {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.requirement-icon {
+  margin-right: var(--spacing-sm);
+  font-size: 1.2rem;
+}
+
+.requirement-text {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+/* 拖放相關樣式 */
+.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.drag-preview {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.placed-component {
+  cursor: move;
+  transition: opacity var(--transition-fast);
+}
+
+.placed-component:hover {
+  opacity: 0.8;
+}
+
+.placed-component.selected {
+  filter: drop-shadow(0 0 8px var(--color-primary));
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  .component-panel {
+    width: 200px;
+  }
+  
+  .properties-panel {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .component-panel {
+    width: 150px;
+  }
+  
+  .properties-panel {
+    display: none;
+  }
+  
+  .game-title {
+    font-size: 2rem;
+  }
+  
+  .mode-card {
+    min-width: 150px;
+  }
+}
+
+/* 滾動條樣式 */
+.component-list::-webkit-scrollbar,
+.properties-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.component-list::-webkit-scrollbar-track,
+.properties-panel::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+.component-list::-webkit-scrollbar-thumb,
+.properties-panel::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.component-list::-webkit-scrollbar-thumb:hover,
+.properties-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-light);
+}

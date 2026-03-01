@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="創意蓋房子遊戲 - 自由建造你夢想中的房子">
+    <title>創意蓋房子 🏠</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- 開始畫面 -->
+      <div id="start-screen" class="screen active">
+        <div class="start-content">
+          <h1 class="game-title">🏠 創意蓋房子</h1>
+          <p class="game-subtitle">發揮你的創意，建造獨一無二的房子！</p>
+          
+          <!-- 遊戲模式選擇 -->
+          <div class="mode-selection">
+            <h3 class="selection-title">選擇遊戲模式</h3>
+            <div class="mode-options">
+              <div class="mode-card" data-mode="free">
+                <div class="mode-icon">🎨</div>
+                <div class="mode-content">
+                  <div class="mode-title">自由建造</div>
+                  <div class="mode-desc">無拘無束，隨心所欲創造你的作品</div>
+                </div>
+              </div>
+              <div class="mode-card" data-mode="challenge">
+                <div class="mode-icon">🎯</div>
+                <div class="mode-content">
+                  <div class="mode-title">挑戰模式</div>
+                  <div class="mode-desc">完成各種建造挑戰，提升技巧</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button id="start-btn" class="btn btn-large btn-primary">
+            開始建造 🚀
+          </button>
+          <a href="../../" class="back-link">← 返回主頁</a>
+        </div>
+      </div>
+
+      <!-- 建造畫面（自由模式） -->
+      <div id="build-screen" class="screen">
+        <!-- 頂部工具欄 -->
+        <div class="toolbar">
+          <button id="back-to-menu-btn" class="icon-btn" title="返回選單">
+            <span>← 選單</span>
+          </button>
+          
+          <div class="toolbar-title">
+            <span class="mode-label">自由建造</span>
+          </div>
+
+          <div class="toolbar-actions">
+            <button id="grid-toggle-btn" class="icon-btn active" title="網格吸附">
+              <span>📐</span>
+            </button>
+            <button id="clear-btn" class="icon-btn" title="清空畫布">
+              <span>🗑️</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="build-workspace">
+          <!-- 左側：元件面板 -->
+          <aside class="component-panel">
+            <div class="panel-header">
+              <h3>元件庫</h3>
+            </div>
+            
+            <div class="component-categories">
+              <button class="category-tab active" data-category="all">全部</button>
+              <button class="category-tab" data-category="foundations">地基</button>
+              <button class="category-tab" data-category="walls">牆壁</button>
+              <button class="category-tab" data-category="roofs">屋頂</button>
+              <button class="category-tab" data-category="doors">門</button>
+              <button class="category-tab" data-category="windows">窗戶</button>
+              <button class="category-tab" data-category="decorations">裝飾</button>
+            </div>
+
+            <div class="component-list" id="component-list">
+              <!-- 元件將由 JavaScript 動態生成 -->
+            </div>
+          </aside>
+
+          <!-- 中央：建造畫布 -->
+          <main class="canvas-area">
+            <svg id="build-canvas" class="build-canvas" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
+              <!-- 網格層 -->
+              <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ddd" stroke-width="0.5" opacity="0.3"/>
+                </pattern>
+              </defs>
+              <rect id="grid-overlay" width="100%" height="100%" fill="url(#grid)" class="grid-visible"/>
+
+              <!-- 背景層 -->
+              <rect width="100%" height="100%" fill="#87CEEB" opacity="0.3"/>
+              
+              <!-- 建造圖層 -->
+              <g id="ground-layer"></g>
+              <g id="walls-layer"></g>
+              <g id="roof-layer"></g>
+              <g id="doors-layer"></g>
+              <g id="windows-layer"></g>
+              <g id="decorations-layer"></g>
+              
+              <!-- 拖放預覽層 -->
+              <g id="preview-layer"></g>
+            </svg>
+
+            <!-- Canvas 特效層 -->
+            <canvas id="effects-canvas" class="effects-canvas"></canvas>
+          </main>
+
+          <!-- 右側：屬性面板（未來可擴展） -->
+          <aside class="properties-panel">
+            <div class="panel-header">
+              <h3>統計</h3>
+            </div>
+            <div class="stats-container">
+              <div class="stat-item">
+                <span class="stat-label">已放置</span>
+                <span id="placed-count" class="stat-value">0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">元件總數</span>
+                <span id="total-components" class="stat-value">0</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- 建造畫面（挑戰模式） -->
+      <div id="challenge-screen" class="screen">
+        <!-- 頂部工具欄 -->
+        <div class="toolbar">
+          <button id="back-to-menu-challenge-btn" class="icon-btn" title="返回選單">
+            <span>← 選單</span>
+          </button>
+          
+          <div class="toolbar-title">
+            <span class="mode-label">挑戰模式</span>
+            <span id="challenge-level" class="challenge-level">關卡 1</span>
+          </div>
+
+          <div class="toolbar-actions">
+            <button id="grid-toggle-challenge-btn" class="icon-btn active" title="網格吸附">
+              <span>📐</span>
+            </button>
+            <button id="clear-challenge-btn" class="icon-btn" title="清空畫布">
+              <span>🗑️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 挑戰說明 -->
+        <div class="challenge-info">
+          <div class="challenge-description" id="challenge-description">
+            建造一個有1面牆和1個屋頂的基本房子
+          </div>
+          <div class="challenge-progress">
+            <span id="challenge-progress-text">進度: 0/2</span>
+          </div>
+        </div>
+
+        <div class="build-workspace">
+          <!-- 左側：元件面板（同自由模式） -->
+          <aside class="component-panel">
+            <div class="panel-header">
+              <h3>元件庫</h3>
+            </div>
+            
+            <div class="component-categories">
+              <button class="category-tab active" data-category="all">全部</button>
+              <button class="category-tab" data-category="foundations">地基</button>
+              <button class="category-tab" data-category="walls">牆壁</button>
+              <button class="category-tab" data-category="roofs">屋頂</button>
+              <button class="category-tab" data-category="doors">門</button>
+              <button class="category-tab" data-category="windows">窗戶</button>
+              <button class="category-tab" data-category="decorations">裝飾</button>
+            </div>
+
+            <div class="component-list" id="component-list-challenge">
+              <!-- 元件將由 JavaScript 動態生成 -->
+            </div>
+          </aside>
+
+          <!-- 中央：建造畫布 -->
+          <main class="canvas-area">
+            <svg id="build-canvas-challenge" class="build-canvas" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
+              <!-- 網格層 -->
+              <rect id="grid-overlay-challenge" width="100%" height="100%" fill="url(#grid)" class="grid-visible"/>
+
+              <!-- 背景層 -->
+              <rect width="100%" height="100%" fill="#87CEEB" opacity="0.3"/>
+              
+              <!-- 建造圖層 -->
+              <g id="ground-layer-challenge"></g>
+              <g id="walls-layer-challenge"></g>
+              <g id="roof-layer-challenge"></g>
+              <g id="doors-layer-challenge"></g>
+              <g id="windows-layer-challenge"></g>
+              <g id="decorations-layer-challenge"></g>
+              
+              <!-- 拖放預覽層 -->
+              <g id="preview-layer-challenge"></g>
+            </svg>
+
+            <!-- Canvas 特效層 -->
+            <canvas id="effects-canvas-challenge" class="effects-canvas"></canvas>
+          </main>
+
+          <!-- 右側：挑戰進度 -->
+          <aside class="properties-panel">
+            <div class="panel-header">
+              <h3>挑戰要求</h3>
+            </div>
+            <div class="requirements-container" id="requirements-container">
+              <!-- 要求項目將由 JavaScript 動態生成 -->
+            </div>
+            
+            <button id="check-challenge-btn" class="btn btn-primary" style="margin-top: 20px; width: 100%;">
+              檢查完成 ✓
+            </button>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/component-library.js"></script>
+    <script src="js/build-engine.js"></script>
+    <script src="js/drag-controller.js"></script>
+    <script src="js/challenge-manager.js"></script>
+    <script src="js/ui-controller.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
