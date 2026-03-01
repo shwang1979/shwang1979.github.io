@@ -6,6 +6,7 @@
 // 全域變數
 let gameEngine;
 let uiController;
+let timerInterval = null;
 
 /**
  * 初始化應用程式
@@ -64,6 +65,12 @@ function bindEvents() {
  * 開始遊戲
  */
 function startGame() {
+  // 清除現有計時器
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+
   // 重置 UI
   uiController.reset();
 
@@ -95,6 +102,79 @@ function showQuestion() {
 
   uiController.updateQuestion(question);
   uiController.updateProgress();
+  
+  // 啟動計時器
+  startTimer();
+}
+
+/**
+ * 啟動題目計時器
+ */
+function startTimer() {
+  // 清除現有計時器
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+  
+  // 取得當前難度的時間限制
+  const timeLimit = gameEngine.getCurrentTimeLimit();
+  let timeRemaining = timeLimit;
+  
+  // 初始化計時器顯示
+  uiController.updateTimer(timeRemaining, timeLimit);
+  
+  // 每 100 毫秒更新一次
+  timerInterval = setInterval(() => {
+    timeRemaining -= 0.1;
+    
+    if (timeRemaining <= 0) {
+      handleTimeOut();
+    } else {
+      uiController.updateTimer(timeRemaining, timeLimit);
+    }
+  }, 100);
+}
+
+/**
+ * 處理答題超時
+ */
+function handleTimeOut() {
+  // 停止計時器
+  clearInterval(timerInterval);
+  timerInterval = null;
+  
+  // 提交空答案（視為錯誤）
+  if (uiController.getCurrentAnswer() === '') {
+    const result = gameEngine.submitAnswer('');
+    
+    // 顯示超時回饋
+    uiController.showFeedback({
+      isCorrect: false,
+      points: 0,
+      feedback: '⏰ 時間到！',
+      speedBonus: 0,
+      streakBonus: 0,
+      difficultyBonus: 0
+    });
+    
+    // 更新分數
+    uiController.updateScore();
+    
+    // 暫時禁用鍵盤
+    uiController.setKeypadDisabled(true);
+    
+    // 1.5秒後載入下一題
+    setTimeout(() => {
+      uiController.setKeypadDisabled(false);
+      
+      if (gameEngine.isGameOver()) {
+        endGame();
+      } else {
+        gameEngine.loadNextQuestion();
+        showQuestion();
+      }
+    }, 1500);
+  }
 }
 
 /**
@@ -106,6 +186,12 @@ function submitAnswer() {
   // 檢查是否有輸入答案
   if (!userAnswer) {
     return;
+  }
+  
+  // 停止計時器
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
   }
 
   // 提交答案到遊戲引擎
@@ -120,6 +206,16 @@ function submitAnswer() {
 
   // 更新分數
   uiController.updateScore();
+  
+  // 檢查是否升級
+  const levelUpResult = gameEngine.checkLevelUp();
+  if (levelUpResult.leveledUp) {
+    // 顯示升級通知
+    setTimeout(() => {
+      uiController.showLevelUpNotification(levelUpResult.newLevel);
+      uiController.updateLevel(levelUpResult.newLevel);
+    }, 800);
+  }
 
   // 暫時禁用鍵盤
   uiController.setKeypadDisabled(true);
@@ -141,6 +237,12 @@ function submitAnswer() {
  * 結束遊戲
  */
 function endGame() {
+  // 清除計時器
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  
   const results = gameEngine.endGame();
   uiController.showResults(results);
 }

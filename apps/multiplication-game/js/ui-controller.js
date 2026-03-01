@@ -24,8 +24,11 @@ class UIController {
 
     // 遊戲畫面
     this.backBtn = document.getElementById('back-btn');
+    this.levelDisplay = document.getElementById('level');
     this.scoreDisplay = document.getElementById('score');
     this.moodIcon = document.getElementById('mood-icon');
+    this.timerDisplay = document.getElementById('timer-display');
+    this.timerFill = document.getElementById('timer-fill');
     this.progress = document.getElementById('progress');
     this.currentQuestionDisplay = document.getElementById('current-question');
     this.totalQuestionsDisplay = document.getElementById('total-questions');
@@ -42,6 +45,7 @@ this.answerDisplay = document.getElementById('answer-display');
     // 結果畫面
     this.resultEmoji = document.getElementById('result-emoji');
     this.resultTitle = document.getElementById('result-title');
+    this.finalLevel = document.getElementById('final-level');
     this.finalScore = document.getElementById('final-score');
     this.correctCountDisplay = document.getElementById('correct-count');
     this.wrongCountDisplay = document.getElementById('wrong-count');
@@ -113,6 +117,57 @@ this.answerDisplay = document.getElementById('answer-display');
     setTimeout(() => {
       this.scoreDisplay.classList.remove('animate-correct');
     }, 600);
+  }
+
+  /**
+   * 更新等級顯示
+   * @param {number} level - 等級
+   */
+  updateLevel(level) {
+    this.levelDisplay.textContent = level;
+    this.levelDisplay.classList.add('animate-correct');
+    setTimeout(() => {
+      this.levelDisplay.classList.remove('animate-correct');
+    }, 600);
+  }
+
+  /**
+   * 更新計時器
+   * @param {number} timeRemaining - 剩餘時間（秒）
+   * @param {number} timeLimit - 時間限制（秒）
+   */
+  updateTimer(timeRemaining, timeLimit) {
+    this.timerDisplay.textContent = Math.ceil(timeRemaining);
+    const percentage = (timeRemaining / timeLimit) * 100;
+    this.timerFill.style.width = `${Math.max(0, percentage)}%`;
+    
+    // 根據剩餘時間改變顏色和動畫
+    this.timerFill.classList.remove('warning', 'danger');
+    this.timerDisplay.parentElement.classList.remove('warning', 'danger');
+    
+    if (percentage <= 30) {
+      this.timerFill.classList.add('danger');
+      this.timerDisplay.parentElement.classList.add('danger');
+    } else if (percentage <= 50) {
+      this.timerFill.classList.add('warning');
+      this.timerDisplay.parentElement.classList.add('warning');
+    }
+  }
+
+  /**
+   * 顯示等級進級通知
+   * @param {number} level - 新等級
+   */
+  showLevelUpNotification(level) {
+    const notification = document.createElement('div');
+    notification.className = 'level-up-notification';
+    notification.textContent = `🎉 Level ${level}！`;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.remove();
+    }, 2000);
   }
 
   /**
@@ -212,6 +267,7 @@ this.answerDisplay = document.getElementById('answer-display');
    */
   showResults(results) {
     // 設定結果資料
+    this.finalLevel.textContent = results.maxLevelReached;
     this.finalScore.textContent = results.score;
     this.correctCountDisplay.textContent = results.correctCount;
     this.wrongCountDisplay.textContent = results.wrongCount;
@@ -278,6 +334,9 @@ this.answerDisplay = document.getElementById('answer-display');
     this.answerDisplay.textContent = '';
     this.feedback.textContent = '';
     this.scoreDisplay.textContent = '0';
+    this.levelDisplay.textContent = '1';
+    this.timerDisplay.textContent = '10';
+    this.timerFill.style.width = '100%';
     this.progress.style.width = '0%';
     this.updateProgress();
   }

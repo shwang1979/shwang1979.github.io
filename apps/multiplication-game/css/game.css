@@ -131,6 +131,28 @@ body {
   color: var(--color-primary);
 }
 
+.level-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.level-label {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.level-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-warning);
+  background: linear-gradient(135deg, #F5A623, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .score-display {
   display: flex;
   flex-direction: column;
@@ -151,6 +173,60 @@ body {
 
 .mood-icon {
   font-size: 2.5rem;
+}
+
+/* 計時器 */
+.timer-container {
+  margin-bottom: 20px;
+}
+
+.timer-bar {
+  width: 100%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-success), var(--color-warning));
+  width: 100%;
+  transition: width 0.1s linear;
+  border-radius: 12px;
+}
+
+.timer-fill.warning {
+  background: linear-gradient(90deg, var(--color-warning), var(--color-danger));
+  animation: pulse-timer 0.5s ease-in-out infinite;
+}
+
+.timer-fill.danger {
+  background: var(--color-danger);
+  animation: pulse-timer 0.3s ease-in-out infinite;
+}
+
+.timer-text {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #666;
+}
+
+.timer-text.warning {
+  color: var(--color-warning);
+}
+
+.timer-text.danger {
+  color: var(--color-danger);
+  animation: shake 0.3s ease-in-out infinite;
+}
+
+@keyframes pulse-timer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 /* 進度條 */
@@ -352,6 +428,10 @@ body {
 
 .stat-value.wrong {
   color: var(--color-danger);
+}
+
+.stat-value.level {
+  color: var(--color-warning);
 }
 
 .result-message {

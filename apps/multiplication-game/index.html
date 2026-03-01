@@ -27,11 +27,25 @@
         <!-- 頂部資訊欄 -->
         <div class="game-header">
           <button id="back-btn" class="icon-btn">← 返回</button>
+          <div class="level-display">
+            <span class="level-label">等級</span>
+            <span id="level" class="level-value">1</span>
+          </div>
           <div class="score-display">
             <span class="score-label">分數</span>
             <span id="score" class="score-value">0</span>
           </div>
           <div class="mood-icon" id="mood-icon">😊</div>
+        </div>
+
+        <!-- 計時器 -->
+        <div class="timer-container">
+          <div class="timer-bar">
+            <div id="timer-fill" class="timer-fill"></div>
+          </div>
+          <div class="timer-text">
+            ⏱️ <span id="timer-display">10</span> 秒
+          </div>
         </div>
 
         <!-- 進度條 -->
@@ -84,6 +98,10 @@
           <div id="result-emoji" class="result-emoji">🎉</div>
           <h2 id="result-title" class="result-title">太棒了！</h2>
           <div class="result-stats">
+            <div class="stat-item">
+              <div class="stat-label">最高等級</div>
+              <div id="final-level" class="stat-value level">1</div>
+            </div>
             <div class="stat-item">
               <div class="stat-label">總分</div>
               <div id="final-score" class="stat-value">0</div>

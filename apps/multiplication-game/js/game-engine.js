@@ -24,6 +24,20 @@ class GameEngine {
     this.startTime = null;
     this.questionStartTime = null;
     this.isGameActive = false;
+    
+    // 等級系統
+    this.level = 1;
+    this.maxLevel = 3;
+    this.maxLevelReached = 1;
+    this.levelScoreThresholds = {
+      1: 100,  // Level 1→2 需要 100 分
+      2: 250   // Level 2→3 需要 250 分
+    };
+    this.levelTimeLimits = {
+      1: 10,   // Level 1: 10 秒
+      2: 5,    // Level 2: 5 秒
+      3: 3     // Level 3: 3 秒
+    };
   }
 
   /**
@@ -209,6 +223,34 @@ class GameEngine {
   }
 
   /**
+   * 取得當前等級時間限制
+   * @returns {number} 時間限制（秒）
+   */
+  getCurrentTimeLimit() {
+    return this.levelTimeLimits[this.level];
+  }
+
+  /**
+   * 檢查是否可以進級
+   * @returns {Object} 進級結果 {leveledUp, newLevel, timeLimit}
+   */
+  checkLevelUp() {
+    if (this.level < this.maxLevel) {
+      const threshold = this.levelScoreThresholds[this.level];
+      if (this.score >= threshold) {
+        this.level++;
+        this.maxLevelReached = Math.max(this.maxLevelReached, this.level);
+        return {
+          leveledUp: true,
+          newLevel: this.level,
+          timeLimit: this.levelTimeLimits[this.level]
+        };
+      }
+    }
+    return { leveledUp: false };
+  }
+
+  /**
    * 取得遊戲進度
    * @returns {Object} 進度資訊
    */
@@ -238,7 +280,10 @@ class GameEngine {
       streak: this.streak,
       maxStreak: this.maxStreak,
       accuracy: accuracy.toFixed(1),
-      totalTime: totalTime.toFixed(1)
+      totalTime: totalTime.toFixed(1),
+      level: this.level,
+      maxLevelReached: this.maxLevelReached,
+      timeLimit: this.getCurrentTimeLimit()
     };
   }
 
