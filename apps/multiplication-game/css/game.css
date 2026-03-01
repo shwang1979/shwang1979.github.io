@@ -320,55 +320,6 @@ body {
   justify-content: center;
 }
 
-/* 數字鍵盤 */
-.keypad {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.key-btn {
-  padding: 24px;
-  font-size: 1.8rem;
-  font-weight: 700;
-  border: none;
-  border-radius: var(--radius-medium);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-small);
-}
-
-.number-key {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-}
-
-.number-key:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-medium);
-}
-
-.number-key:active {
-  transform: scale(0.95);
-}
-
-.action-key {
-  background: linear-gradient(135deg, #f093fb, #f5576c);
-  color: white;
-}
-
-.action-key:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-medium);
-}
-
-.submit-key {
-  background: linear-gradient(135deg, var(--color-success), #5FA31A);
-  font-size: 2.5rem;
-}
-
 /* ===== 結果畫面 ===== */
 #result-screen {
   background: white;
@@ -508,15 +459,6 @@ body {
   
   .answer-display {
     font-size: 3rem;
-  }
-  
-  .key-btn {
-    padding: 20px;
-    font-size: 1.5rem;
-  }
-  
-  .keypad {
-    gap: 10px;
   }
   
   .result-emoji {

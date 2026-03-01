@@ -296,9 +296,9 @@
 /* 等級晉升通知 */
 .level-up-notification {
   position: fixed;
-  top: 50%;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background: linear-gradient(135deg, #F5A623, #FF8C00);
   color: white;
   padding: 30px 50px;
@@ -306,7 +306,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  animation: levelUpBounce 1s ease;
+  animation: levelUpBounce 1.2s ease;
   z-index: 2000;
   pointer-events: none;
 }
@@ -314,17 +314,22 @@
 @keyframes levelUpBounce {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate(-50%, 0) scale(0.3);
   }
-  50% {
+  40% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, 0) scale(1.2);
   }
-  70% {
-    transform: translate(-50%, -50%) scale(0.9);
+  60% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.9);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
   }
   100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transform: translate(-50%, 0) scale(1);
   }
 }

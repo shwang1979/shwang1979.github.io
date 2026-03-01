@@ -36,11 +36,7 @@ class UIController {
     this.multiplierDisplay = document.getElementById('multiplier');
 this.answerDisplay = document.getElementById('answer-display');
     this.feedback = document.getElementById('feedback');
-    
-    // 鍵盤按鈕
-    this.numberKeys = document.querySelectorAll('.number-key');
-    this.clearBtn = document.getElementById('clear-btn');
-    this.submitBtn = document.getElementById('submit-btn');
+
 
     // 結果畫面
     this.resultEmoji = document.getElementById('result-emoji');
@@ -167,7 +163,7 @@ this.answerDisplay = document.getElementById('answer-display');
     
     setTimeout(() => {
       notification.remove();
-    }, 2000);
+    }, 1200);
   }
 
   /**
@@ -346,11 +342,7 @@ this.answerDisplay = document.getElementById('answer-display');
    * @param {boolean} disabled - 是否禁用
    */
   setKeypadDisabled(disabled) {
-    this.numberKeys.forEach(key => {
-      key.disabled = disabled;
-    });
-    this.clearBtn.disabled = disabled;
-    this.submitBtn.disabled = disabled;
+    // 仅保留鍵盤輸入，不需要禁用任何按鈕
   }
 
   /**

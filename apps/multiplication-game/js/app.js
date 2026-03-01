@@ -38,22 +38,6 @@ function bindEvents() {
     }
   });
 
-  // 數字鍵盤
-  uiController.numberKeys.forEach(key => {
-    key.addEventListener('click', () => {
-      const digit = key.getAttribute('data-value');
-      uiController.addDigit(digit);
-    });
-  });
-
-  // 清除按鈕
-  uiController.clearBtn.addEventListener('click', () => {
-    uiController.clearAnswer();
-  });
-
-  // 提交答案按鈕
-  uiController.submitBtn.addEventListener('click', submitAnswer);
-
   // 重新開始按鈕
   uiController.restartBtn.addEventListener('click', startGame);
 
