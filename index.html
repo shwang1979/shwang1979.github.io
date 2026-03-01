@@ -1,68 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World - GitHub Pages</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: #fff;
-      }
-      
-      .container {
-        text-align: center;
-        padding: 2rem;
-      }
-      
-      h1 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        animation: fadeIn 1s ease-in;
-      }
-      
-      p {
-        font-size: 1.5rem;
-        opacity: 0.9;
-        animation: fadeIn 1.5s ease-in;
-      }
-      
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .footer {
-        margin-top: 2rem;
-        font-size: 1rem;
-        opacity: 0.7;
-      }
-    </style>
+    <meta name="description" content="我的 Web Apps 作品集 - 包含互動遊戲、工具程式等多個網頁應用">
+    <title>我的 Web Apps | GitHub Pages</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/portal.css">
   </head>
   <body>
-    <div class="container">
-      <h1>Hello World! 🌍</h1>
-      <p>Welcome to my GitHub Pages site</p>
-      <div class="footer">
-        <p>Powered by GitHub Pages</p>
+    <div class="portal">
+      <!-- 頭部區域 -->
+      <header class="portal-header">
+        <h1>🌟 我的 Web Apps 作品集</h1>
+        <p>Welcome to my GitHub Pages | 歡迎來到我的網頁應用集合</p>
+      </header>
+      
+      <!-- App 卡片網格 -->
+      <div class="app-grid">
+        <!-- App 1: 九九乘法表遊戲 -->
+        <a href="apps/multiplication-game/" class="app-card">
+          <span class="app-badge">新上線</span>
+          <div class="app-icon">🎮</div>
+          <h2>九九乘法表遊戲</h2>
+          <p>有趣的互動遊戲，幫助小學生練習乘法表，包含關卡系統和成就徽章</p>
+        </a>
+        
+        <!-- App 2: 待開發 -->
+        <div class="app-card coming-soon">
+          <div class="app-icon">📝</div>
+          <h2>Coming Soon</h2>
+          <p>更多應用開發中...</p>
+        </div>
+        
+        <!-- App 3: 待開發 -->
+        <div class="app-card coming-soon">
+          <div class="app-icon">🔢</div>
+          <h2>Coming Soon</h2>
+          <p>敬請期待</p>
+        </div>
       </div>
+      
+      <!-- 頁腳 -->
+      <footer class="portal-footer">
+        <p>Powered by GitHub Pages | Built with ❤️</p>
+      </footer>
     </div>
   </body>
 </html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="九九乘法表練習遊戲 - 有趣的互動遊戲幫助小學生練習乘法">
+    <title>九九乘法表遊戲 🎮</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/animations.css">
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- 開始畫面 -->
+      <div id="start-screen" class="screen active">
+        <div class="start-content">
+          <h1 class="game-title">🎮 九九乘法表遊戲</h1>
+          <p class="game-subtitle">準備好挑戰了嗎？</p>
+          <button id="start-btn" class="btn btn-large btn-primary">
+            開始遊戲 🚀
+          </button>
+          <a href="../../" class="back-link">← 返回主頁</a>
+        </div>
+      </div>
+
+      <!-- 遊戲畫面 -->
+      <div id="game-screen" class="screen">
+        <!-- 頂部資訊欄 -->
+        <div class="game-header">
+          <button id="back-btn" class="icon-btn">← 返回</button>
+          <div class="score-display">
+            <span class="score-label">分數</span>
+            <span id="score" class="score-value">0</span>
+          </div>
+          <div class="mood-icon" id="mood-icon">😊</div>
+        </div>
+
+        <!-- 進度條 -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div id="progress" class="progress-fill"></div>
+          </div>
+          <div class="progress-text">
+            第 <span id="current-question">1</span> / <span id="total-questions">10</span> 題
+          </div>
+        </div>
+
+        <!-- 題目顯示區 -->
+        <div class="question-container">
+          <div class="question-display">
+            <span id="multiplicand" class="number">7</span>
+            <span class="operator">×</span>
+            <span id="multiplier" class="number">8</span>
+            <span class="operator">=</span>
+            <span class="question-mark">?</span>
+          </div>
+        </div>
+
+        <!-- 答案輸入區 -->
+        <div class="answer-container">
+          <div id="answer-display" class="answer-display"></div>
+          <div id="feedback" class="feedback"></div>
+        </div>
+
+        <!-- 數字鍵盤 -->
+        <div class="keypad">
+          <button class="key-btn number-key" data-value="1">1</button>
+          <button class="key-btn number-key" data-value="2">2</button>
+          <button class="key-btn number-key" data-value="3">3</button>
+          <button class="key-btn number-key" data-value="4">4</button>
+          <button class="key-btn number-key" data-value="5">5</button>
+          <button class="key-btn number-key" data-value="6">6</button>
+          <button class="key-btn number-key" data-value="7">7</button>
+          <button class="key-btn number-key" data-value="8">8</button>
+          <button class="key-btn number-key" data-value="9">9</button>
+          <button class="key-btn action-key" id="clear-btn">⌫</button>
+          <button class="key-btn number-key" data-value="0">0</button>
+          <button class="key-btn action-key submit-key" id="submit-btn">✓</button>
+        </div>
+      </div>
+
+      <!-- 結果畫面 -->
+      <div id="result-screen" class="screen">
+        <div class="result-content">
+          <div id="result-emoji" class="result-emoji">🎉</div>
+          <h2 id="result-title" class="result-title">太棒了！</h2>
+          <div class="result-stats">
+            <div class="stat-item">
+              <div class="stat-label">總分</div>
+              <div id="final-score" class="stat-value">0</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">答對</div>
+              <div id="correct-count" class="stat-value correct">0</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">答錯</div>
+              <div id="wrong-count" class="stat-value wrong">0</div>
+            </div>
+          </div>
+          <div id="result-message" class="result-message"></div>
+          <div class="result-actions">
+            <button id="restart-btn" class="btn btn-large btn-success">
+              再玩一次 🔄
+            </button>
+            <a href="../../" class="btn btn-large">返回主頁</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/question-generator.js"></script>
+    <script src="js/game-engine.js"></script>
+    <script src="js/ui-controller.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

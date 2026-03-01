@@ -1,0 +1,226 @@
+/* Portal Page Styles - 主頁樣式 */
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.portal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+/* 頭部區域 */
+.portal-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.portal-header h1 {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 16px;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.portal-header p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+/* App 卡片網格 */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* App 卡片 */
+.app-card {
+  background: white;
+  border-radius: var(--radius-xlarge);
+  padding: 40px 32px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-large);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  animation: fadeInUp 0.6s ease backwards;
+}
+
+.app-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.app-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.app-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.app-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.app-card:active {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* App 圖示 */
+.app-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+  animation-play-state: paused;
+}
+
+.app-card:hover .app-icon {
+  animation-play-state: running;
+}
+
+.app-card h2 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.app-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* App 狀態徽章 */
+.app-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, var(--color-success), #5FA31A);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  box-shadow: var(--shadow-small);
+}
+
+/* Coming Soon 卡片 */
+.app-card.coming-soon {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.app-card.coming-soon:hover {
+  transform: none;
+  box-shadow: var(--shadow-large);
+}
+
+.app-card.coming-soon .app-icon {
+  animation: none;
+  opacity: 0.5;
+}
+
+/* 頁腳 */
+.portal-footer {
+  text-align: center;
+  padding: 40px 20px 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+/* 動畫 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .portal-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .portal-header p {
+    font-size: 1.1rem;
+  }
+  
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .app-card {
+    padding: 32px 24px;
+    min-height: 240px;
+  }
+  
+  .app-icon {
+    font-size: 4rem;
+  }
+  
+  .app-card h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .app-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,143 @@
+/* Common Styles - 共用樣式 */
+/* 適用於所有 Web Apps 的通用元件 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* 童趣卡通風格色彩 */
+  --color-primary: #4A90E2;
+  --color-success: #7ED321;
+  --color-warning: #F5A623;
+  --color-danger: #FF6B6B;
+  --color-info: #FF69B4;
+  
+  /* 背景色 */
+  --bg-gradient-start: #667eea;
+  --bg-gradient-end: #764ba2;
+  
+  /* 文字色 */
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-light: #fff;
+  
+  /* 圓角 */
+  --radius-small: 8px;
+  --radius-medium: 15px;
+  --radius-large: 20px;
+  --radius-xlarge: 25px;
+  
+  /* 陰影 */
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-large: 0 8px 24px rgba(0, 0, 0, 0.2);
+  
+  /* 動畫 */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 
+               'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* 通用按鈕樣式 */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-large);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-small);
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), #357ABD);
+  color: var(--text-light);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--color-success), #5FA31A);
+  color: var(--text-light);
+}
+
+.btn-large {
+  padding: 16px 48px;
+  font-size: 20px;
+  border-radius: var(--radius-xlarge);
+}
+
+/* 通用卡片樣式 */
+.card {
+  background: white;
+  border-radius: var(--radius-large);
+  padding: 24px;
+  box-shadow: var(--shadow-medium);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-large);
+}
+
+/* 響應式容器 */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 通用工具類 */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+  
+  .btn-large {
+    padding: 14px 36px;
+    font-size: 18px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,197 @@
+/**
+ * 應用程式主入口
+ * 整合遊戲引擎和 UI 控制器，處理所有事件
+ */
+
+// 全域變數
+let gameEngine;
+let uiController;
+
+/**
+ * 初始化應用程式
+ */
+function init() {
+  // 創建遊戲引擎和 UI 控制器
+  gameEngine = new GameEngine();
+  uiController = new UIController(gameEngine);
+
+  // 綁定事件監聽器
+  bindEvents();
+
+  // 顯示開始畫面
+  uiController.showScreen('start');
+}
+
+/**
+ * 綁定所有事件監聽器
+ */
+function bindEvents() {
+  // 開始遊戲按鈕
+  uiController.startBtn.addEventListener('click', startGame);
+
+  // 返回按鈕
+  uiController.backBtn.addEventListener('click', () => {
+    if (confirm('確定要離開遊戲嗎？進度將不會保存。')) {
+      uiController.showScreen('start');
+      gameEngine.reset();
+    }
+  });
+
+  // 數字鍵盤
+  uiController.numberKeys.forEach(key => {
+    key.addEventListener('click', () => {
+      const digit = key.getAttribute('data-value');
+      uiController.addDigit(digit);
+    });
+  });
+
+  // 清除按鈕
+  uiController.clearBtn.addEventListener('click', () => {
+    uiController.clearAnswer();
+  });
+
+  // 提交答案按鈕
+  uiController.submitBtn.addEventListener('click', submitAnswer);
+
+  // 重新開始按鈕
+  uiController.restartBtn.addEventListener('click', startGame);
+
+  // 鍵盤輸入支援
+  document.addEventListener('keydown', handleKeyPress);
+}
+
+/**
+ * 開始遊戲
+ */
+function startGame() {
+  // 重置 UI
+  uiController.reset();
+
+  // 開始新遊戲
+  gameEngine.startGame({
+    totalQuestions: 10,
+    minTable: 1,
+    maxTable: 9
+  });
+
+  // 顯示遊戲畫面
+  uiController.showScreen('game');
+
+  // 顯示第一題
+  showQuestion();
+}
+
+/**
+ * 顯示題目
+ */
+function showQuestion() {
+  const question = gameEngine.getCurrentQuestion();
+  
+  if (!question) {
+    // 沒有更多題目，遊戲結束
+    endGame();
+    return;
+  }
+
+  uiController.updateQuestion(question);
+  uiController.updateProgress();
+}
+
+/**
+ * 提交答案
+ */
+function submitAnswer() {
+  const userAnswer = uiController.getCurrentAnswer();
+
+  // 檢查是否有輸入答案
+  if (!userAnswer) {
+    return;
+  }
+
+  // 提交答案到遊戲引擎
+  const result = gameEngine.submitAnswer(userAnswer);
+
+  if (!result) {
+    return;
+  }
+
+  // 顯示回饋
+  uiController.showFeedback(result);
+
+  // 更新分數
+  uiController.updateScore();
+
+  // 暫時禁用鍵盤
+  uiController.setKeypadDisabled(true);
+
+  // 1.5秒後載入下一題
+  setTimeout(() => {
+    uiController.setKeypadDisabled(false);
+
+    if (gameEngine.isGameOver()) {
+      endGame();
+    } else {
+      gameEngine.loadNextQuestion();
+      showQuestion();
+    }
+  }, 1500);
+}
+
+/**
+ * 結束遊戲
+ */
+function endGame() {
+  const results = gameEngine.endGame();
+  uiController.showResults(results);
+}
+
+/**
+ * 處理鍵盤按鍵
+ * @param {KeyboardEvent} event - 鍵盤事件
+ */
+function handleKeyPress(event) {
+  // 只在遊戲畫面處理鍵盤輸入
+  if (!uiController.gameScreen.classList.contains('active')) {
+    return;
+  }
+
+  const key = event.key;
+
+  // 數字鍵 0-9
+  if (key >= '0' && key <= '9') {
+    event.preventDefault();
+    uiController.addDigit(key);
+  }
+
+  // Enter 鍵提交答案
+  if (key === 'Enter') {
+    event.preventDefault();
+    submitAnswer();
+  }
+
+  // Backspace 或 Delete 鍵清除
+  if (key === 'Backspace' || key === 'Delete') {
+    event.preventDefault();
+    uiController.clearAnswer();
+  }
+
+  // Escape 鍵返回
+  if (key === 'Escape') {
+    event.preventDefault();
+    uiController.backBtn.click();
+  }
+}
+
+/**
+ * 頁面載入完成後初始化
+ */
+window.addEventListener('DOMContentLoaded', init);
+
+// 防止意外離開頁面（遊戲進行中）
+window.addEventListener('beforeunload', (event) => {
+  if (gameEngine && gameEngine.isGameActive) {
+    event.preventDefault();
+    event.returnValue = '';
+    return '';
+  }
+});
