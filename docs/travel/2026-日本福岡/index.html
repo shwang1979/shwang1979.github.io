@@ -402,6 +402,18 @@
         .spot-card  { padding: 1rem; }
       }
     </style>
+
+    <!-- ── Hypothesis 家人行程反饋標注系統 ──
+         公開模式（暫時）：任何登入 Hypothesis 的人都可留言。
+         取得私密 Group ID 後，將下方 script 換成：
+         <script>
+           window.hypothesisConfig = function() {
+             return { group: 'YOUR_GROUP_ID' };
+           };
+         </script>
+         <script async src="https://hypothes.is/embed.js"></script>
+    ── -->
+    <script async src="https://hypothes.is/embed.js"></script>
   </head>
   <body>
 
