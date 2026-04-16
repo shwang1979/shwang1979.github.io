@@ -16,39 +16,78 @@
         <p>Welcome to my GitHub Pages | 歡迎來到我的網頁應用集合</p>
       </header>
       
-      <!-- App 卡片網格 -->
-      <div class="app-grid">
-        <!-- App 1: 九九乘法表遊戲 -->
-        <a href="apps/multiplication-game/" class="app-card">
-          <span class="app-badge">新上線</span>
-          <div class="app-icon">🎮</div>
-          <h2>九九乘法表遊戲</h2>
-          <p>有趣的互動遊戲，幫助小學生練習乘法表，包含關卡系統和成就徽章</p>
-        </a>
-        
-        <!-- App 2: 創意蓋房子 -->
-        <a href="apps/house-builder/" class="app-card">
-          <span class="app-badge">新上線</span>
-          <div class="app-icon">🏠</div>
-          <h2>創意蓋房子</h2>
-          <p>自由拖放元件建造房子，包含自由建造和挑戰模式，41 種精美元件</p>
-        </a>
-        
-        <!-- App 3: 福岡旅遊行程 -->
-        <a href="docs/travel/2026-日本福岡/" class="app-card">
-          <span class="app-badge">新上線</span>
-          <div class="app-icon">🗾</div>
-          <h2>福岡家庭七天行程</h2>
-          <p>2026 九州親子自由行完整攻略，含七日詳細行程、美食推薦、行前清單與住宿建議</p>
-        </a>
+      <!-- 分類快捷導覽 -->
+      <nav class="category-nav">
+        <a class="category-chip" href="#games">🎮 互動遊戲</a>
+        <a class="category-chip" href="#travel">🗺️ 旅遊行程</a>
+        <a class="category-chip" href="#life">📸 生活記錄</a>
+      </nav>
 
-        <!-- App 4: 待開發 -->
-        <div class="app-card coming-soon">
-          <div class="app-icon">🔢</div>
-          <h2>Coming Soon</h2>
-          <p>敬請期待</p>
+      <!-- ── 互動遊戲 ── -->
+      <section class="category-section cat-games" id="games">
+        <div class="category-header">
+          <span class="cat-icon">🎮</span>
+          <h2 class="cat-title">互動遊戲</h2>
+          <p class="cat-desc">適合親子同樂的教育遊戲</p>
         </div>
-      </div>
+        <div class="app-grid">
+          <a href="apps/multiplication-game/" class="app-card" style="--card-i:1">
+            <span class="app-badge">新上線</span>
+            <div class="app-icon">🎮</div>
+            <h2>九九乘法表遊戲</h2>
+            <p>有趣的互動遊戲，幫助小學生練習乘法表，包含關卡系統和成就徽章</p>
+          </a>
+          <a href="apps/house-builder/" class="app-card" style="--card-i:2">
+            <span class="app-badge">新上線</span>
+            <div class="app-icon">🏠</div>
+            <h2>創意蓋房子</h2>
+            <p>自由拖放元件建造房子，包含自由建造和挑戰模式，41 種精美元件</p>
+          </a>
+          <div class="app-card coming-soon" style="--card-i:3">
+            <div class="app-icon">🕹️</div>
+            <h2>Coming Soon</h2>
+            <p>下一個遊戲敬請期待</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 旅遊行程 ── -->
+      <section class="category-section cat-travel" id="travel">
+        <div class="category-header">
+          <span class="cat-icon">🗺️</span>
+          <h2 class="cat-title">旅遊行程</h2>
+          <p class="cat-desc">家庭自由行規劃與攻略</p>
+        </div>
+        <div class="app-grid">
+          <a href="docs/travel/2026-日本福岡/" class="app-card" style="--card-i:1">
+            <span class="app-badge">新上線</span>
+            <div class="app-icon">🗾</div>
+            <h2>福岡家庭七天行程</h2>
+            <p>2026 九州親子自由行完整攻略，含七日詳細行程、美食推薦、行前清單與住宿建議</p>
+          </a>
+          <div class="app-card coming-soon" style="--card-i:2">
+            <div class="app-icon">✈️</div>
+            <h2>Coming Soon</h2>
+            <p>下一趟旅程敬請期待</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 生活記錄 ── -->
+      <section class="category-section cat-life" id="life">
+        <div class="category-header">
+          <span class="cat-icon">📸</span>
+          <h2 class="cat-title">生活記錄</h2>
+          <p class="cat-desc">日常紀錄與相簿</p>
+        </div>
+        <div class="app-grid">
+          <div class="app-card coming-soon" style="--card-i:1">
+            <div class="app-icon">📷</div>
+            <h2>Coming Soon</h2>
+            <p>生活記錄敬請期待</p>
+          </div>
+        </div>
+      </section>
       
       <!-- 頁腳 -->
       <footer class="portal-footer">
