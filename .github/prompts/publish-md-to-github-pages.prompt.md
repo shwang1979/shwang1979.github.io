@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: 將 Markdown 旅遊/文件頁面轉換為 HTML 並發佈到 GitHub Pages（含 git push）
 ---
 
@@ -138,7 +138,7 @@ git push origin master
 ## 實際案例參考
 
 - **福岡旅遊行程 v1.3**（2026-04-16）
-  - 來源：`docs/travel/2026-日本福岡/fukuoka-2026-v1.3.md`
+  - 來源：`docs/travel/2026-日本福岡/fukuoka-2026.md`
   - 輸出：`docs/travel/2026-日本福岡/index.html`
   - 上線：`https://shwang1979.github.io/docs/travel/2026-日本福岡/`
   - Commit：`4622d3a`
