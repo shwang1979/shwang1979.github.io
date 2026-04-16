@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="福岡家庭七天行程 v1.3 — 2026/07/31–08/06，親子自由行，含九州各地景點、美食與預算建議">
+    <title>🗾 福岡家庭七天行程 v1.3 | 2026</title>
+    <link rel="stylesheet" href="../../../assets/css/common.css">
+    <style>
+      /* ── 旅遊頁面專屬樣式 ── */
+      :root {
+        --japan-red:    #BC2131;
+        --japan-cream:  #FDF6EC;
+        --day-blue:     #1a6fa8;
+        --accent-gold:  #D4A017;
+        --card-bg:      #ffffff;
+        --border-light: #e8e0d4;
+      }
+
+      body {
+        background: var(--japan-cream);
+        color: #2c2c2c;
+      }
+
+      /* ── Header ── */
+      .trip-header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+        color: #fff;
+        padding: 3rem 1.5rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .trip-header::before {
+        content: "🌸 🗼 🏯 ⛩️ 🍜 🎆";
+        position: absolute;
+        top: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.6rem;
+        letter-spacing: 0.4rem;
+        opacity: 0.35;
+        white-space: nowrap;
+      }
+      .trip-header h1 {
+        font-size: clamp(1.6rem, 5vw, 2.6rem);
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      }
+      .trip-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .meta-badge {
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 2rem;
+        padding: 0.3rem 0.9rem;
+        font-size: 0.85rem;
+        backdrop-filter: blur(4px);
+      }
+      .version-badge {
+        background: var(--japan-red);
+        color: #fff;
+        border-radius: 0.4rem;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        vertical-align: middle;
+      }
+
+      /* ── Day Nav ── */
+      .day-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #16213e;
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: none;
+        border-bottom: 3px solid var(--japan-red);
+      }
+      .day-nav::-webkit-scrollbar { display: none; }
+      .day-nav a {
+        color: rgba(255,255,255,0.75);
+        text-decoration: none;
+        padding: 0.7rem 1.1rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: all 0.2s;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -3px;
+      }
+      .day-nav a:hover {
+        color: #fff;
+        background: rgba(255,255,255,0.08);
+        border-bottom-color: var(--accent-gold);
+      }
+
+      /* ── Main Layout ── */
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+      }
+
+      /* ── Flight Banner ── */
+      .flight-banner {
+        background: linear-gradient(135deg, #0a2342, #1a4a7a);
+        color: #fff;
+        border-radius: 0 0 var(--radius-medium) var(--radius-medium);
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+      }
+      .flight-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .flight-icon { font-size: 1.5rem; }
+      .flight-detail { line-height: 1.4; }
+      .flight-detail strong { display: block; font-size: 1.05rem; }
+      .flight-detail small { opacity: 0.75; }
+
+      /* ── Day Section ── */
+      .day-section {
+        margin-top: 2.5rem;
+        scroll-margin-top: 3.2rem;
+      }
+      .day-header {
+        background: linear-gradient(135deg, var(--day-blue), #2196a8);
+        color: #fff;
+        border-radius: var(--radius-medium) var(--radius-medium) 0 0;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: baseline;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .day-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        opacity: 0.9;
+      }
+      .day-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .day-date {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        margin-left: auto;
+      }
+
+      /* ── Spot Card ── */
+      .spot-card {
+        background: var(--card-bg);
+        border-left: 4px solid var(--day-blue);
+        border-radius: 0 var(--radius-small) var(--radius-small) 0;
+        padding: 1.2rem 1.4rem;
+        margin: 0.1rem 0;
+        transition: box-shadow 0.2s;
+      }
+      .spot-card:last-child {
+        border-radius: 0 0 var(--radius-medium) var(--radius-medium);
+      }
+      .spot-card:hover { box-shadow: var(--shadow-small); }
+      .spot-card h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+      .spot-tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 0.15rem 0.5rem;
+        border-radius: 0.9rem;
+        background: #e8f0fe;
+        color: var(--day-blue);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .spot-tag.lunch  { background: #fff3e0; color: #e65100; }
+      .spot-tag.dinner { background: #fce4ec; color: #880e4f; }
+      .spot-tag.highlight { background: #e8f5e9; color: #1b5e20; }
+
+      .spot-card p {
+        color: #444;
+        margin: 0.3rem 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .spot-card ul {
+        padding-left: 1.2rem;
+        color: #444;
+        font-size: 0.93rem;
+        line-height: 1.7;
+      }
+      .notice {
+        background: #fff8e1;
+        border-left: 3px solid var(--accent-gold);
+        border-radius: 0 var(--radius-small) var(--radius-small) 0;
+        padding: 0.5rem 0.8rem;
+        margin: 0.5rem 0;
+        font-size: 0.88rem;
+        color: #5d4037;
+      }
+      .notice strong { color: var(--japan-red); }
+
+      /* ── Reference Table ── */
+      .ref-section {
+        margin-top: 0.8rem;
+      }
+      .ref-toggle {
+        background: none;
+        border: 1px solid #c8b9a8;
+        border-radius: 0.4rem;
+        color: #666;
+        cursor: pointer;
+        font-size: 0.8rem;
+        padding: 0.25rem 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: all 0.2s;
+      }
+      .ref-toggle:hover { background: #f5efe8; border-color: #a09080; }
+      .ref-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+      .ref-toggle.open .arrow { transform: rotate(180deg); }
+      .ref-table-wrap {
+        display: none;
+        margin-top: 0.5rem;
+        overflow-x: auto;
+      }
+      .ref-table-wrap.open { display: block; }
+      .ref-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      .ref-table th {
+        background: #f0e8dc;
+        color: #5d4037;
+        text-align: left;
+        padding: 0.4rem 0.7rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .ref-table td {
+        padding: 0.4rem 0.7rem;
+        border-bottom: 1px solid #f0e8dc;
+        vertical-align: top;
+      }
+      .ref-table tr:hover td { background: #fdf6ec; }
+      .ref-table a {
+        color: var(--day-blue);
+        text-decoration: none;
+      }
+      .ref-table a:hover { text-decoration: underline; }
+      .source-tag {
+        display: inline-block;
+        background: #ede7e0;
+        border-radius: 0.3rem;
+        padding: 0.1rem 0.4rem;
+        font-size: 0.75rem;
+        color: #5d4037;
+        white-space: nowrap;
+      }
+
+      /* ── Checklist ── */
+      .checklist-section {
+        background: var(--card-bg);
+        border-radius: var(--radius-medium);
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        box-shadow: var(--shadow-small);
+        scroll-margin-top: 3.2rem;
+      }
+      .checklist-section h2 {
+        font-size: 1.3rem;
+        color: #1a1a2e;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-light);
+      }
+      .checklist-group { margin-bottom: 1.2rem; }
+      .checklist-group h3 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--day-blue);
+        margin-bottom: 0.5rem;
+      }
+      .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 0.3rem 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #333;
+      }
+      .check-item input[type="checkbox"] {
+        margin-top: 0.15rem;
+        accent-color: var(--japan-red);
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+      .check-item label { cursor: pointer; }
+      .check-item a { color: var(--day-blue); }
+
+      /* ── Hotel Table ── */
+      .hotel-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+        margin-top: 0.5rem;
+      }
+      .hotel-table th {
+        background: #f0e8dc;
+        padding: 0.5rem 0.8rem;
+        text-align: left;
+        font-weight: 700;
+        color: #5d4037;
+      }
+      .hotel-table td {
+        padding: 0.5rem 0.8rem;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .hotel-table tr:hover td { background: #fdf6ec; }
+
+      /* ── Option Block ── */
+      .option-block {
+        border: 2px dashed var(--border-light);
+        border-radius: var(--radius-small);
+        padding: 1rem;
+        margin: 0.8rem 0;
+      }
+      .option-block h4 {
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #1a1a2e;
+      }
+      .option-block.option-b { border-color: #aee8c0; background: #f1fff6; }
+      .fireworks-banner {
+        background: linear-gradient(135deg, #1a1a2e, #2d1b69);
+        color: #fff;
+        border-radius: var(--radius-small);
+        padding: 0.7rem 1rem;
+        margin-bottom: 0.7rem;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      /* ── Version Footer ── */
+      .version-footer {
+        margin-top: 3rem;
+        padding: 1.2rem;
+        border-top: 2px solid var(--border-light);
+        font-size: 0.8rem;
+        color: #888;
+        line-height: 1.8;
+      }
+      .version-footer a {
+        color: var(--day-blue);
+        text-decoration: none;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        color: var(--day-blue);
+        text-decoration: none;
+        font-size: 0.85rem;
+        margin: 1rem 0 0;
+        font-weight: 600;
+      }
+      .back-link:hover { text-decoration: underline; }
+
+      @media (max-width: 600px) {
+        .flight-banner { flex-direction: column; align-items: center; text-align: center; }
+        .day-header { padding: 0.8rem 1rem; }
+        .spot-card  { padding: 1rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ── Header ── -->
+    <header class="trip-header">
+      <h1>🗾 福岡家庭七天行程 <span class="version-badge">v1.3</span></h1>
+      <div class="trip-meta">
+        <span class="meta-badge">📅 2026/07/31–08/06</span>
+        <span class="meta-badge">👨‍👩‍👧‍👦 二大二小（國二＋小四）</span>
+        <span class="meta-badge">💴 ¥15,000–50,000/天</span>
+        <span class="meta-badge">🚆 大眾運輸為主</span>
+        <span class="meta-badge">🛫 台灣台北出發</span>
+      </div>
+    </header>
+
+    <!-- ── Day Nav ── -->
+    <nav class="day-nav">
+      <a href="#day1">Day 1｜抵達・博多</a>
+      <a href="#day2">Day 2｜太宰府・柳川</a>
+      <a href="#day3">Day 3｜糸島海岸</a>
+      <a href="#day4">Day 4｜別府地獄</a>
+      <a href="#day5">Day 5｜海洋世界</a>
+      <a href="#day6">Day 6｜天神購物</a>
+      <a href="#day7">Day 7｜返台</a>
+      <a href="#checklist">行前清單</a>
+      <a href="#hotels">住宿建議</a>
+    </nav>
+
+    <div class="container">
+
+      <!-- Flight Banner -->
+      <div class="flight-banner">
+        <div class="flight-item">
+          <span class="flight-icon">🛫</span>
+          <div class="flight-detail">
+            <strong>CI110 去程</strong>
+            <small>07/31（五）06:50 桃園 T2 → 09:55 福岡</small>
+          </div>
+        </div>
+        <div class="flight-item">
+          <span class="flight-icon">🛬</span>
+          <div class="flight-detail">
+            <strong>CI129 回程</strong>
+            <small>08/06（四）19:10 福岡 → 20:35 桃園 T2</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ DAY 1 ══ -->
+      <section class="day-section" id="day1">
+        <div class="day-header">
+          <span class="day-number">Day 1</span>
+          <span class="day-title">抵達・博多初體驗</span>
+          <span class="day-date">7/31（五）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>🛍️ 博多運河城 Canal City</h3>
+          <p>逛購物中心、看整點噴泉水舞秀（夜間加入 3D 投影）、PS Kids 廣場。</p>
+          <div class="notice">
+            <strong>注意：</strong>暑假人潮多，噴泉秀整點演出，提前 5 分鐘站好位置；UNIQLO 博多運河城店已關閉，請改至 KITTE 博多店。
+          </div>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://bobbytravel.tw/canal-city-hakata/" target="_blank" rel="noopener">【福岡】博多運河城：超震撼鋼彈水舞秀！Top17必買品牌＆美食交通全攻略</a></td>
+                    <td><span class="source-tag">波比看世界（2026-02）</span></td>
+                    <td>最新圖文，詳述鋼彈水舞秀、KUOHKA 新美食街、拉麵競技場現況</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://matcha-jp.com/tw/3685" target="_blank" rel="noopener">【最新】博多運河城完整指南！福岡購物、逛街、吃美食就來這</a></td>
+                    <td><span class="source-tag">MATCHA（2025-08）</span></td>
+                    <td>樓層地圖、各區特色、伊都 King 草莓銅鑼燒</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://tw.wamazing.com/media/article/a-2251/" target="_blank" rel="noopener">攻略福岡「博多運河城」！交通、必吃美食、必買品牌＆扭蛋店推薦</a></td>
+                    <td><span class="source-tag">完美行（2025-02）</span></td>
+                    <td>扭蛋、動漫周邊、Kirby Café 等主題餐廳</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>⛩️ 住吉神社「名越祭・川岸祭」 <span class="spot-tag highlight">夜間活動</span></h3>
+          <p><strong>時程：</strong>本殿祭 10:00 / 川岸祭（人形流し神事）19:00</p>
+          <p><strong>地點：</strong>博多 筑前國一之宮 住吉神社（博多站步行 10 分）</p>
+          <p>用紙製人形承接一整年的罪與穢氣，傍晚投入河中隨流而去；穿越茅の輪大圓環可消災祈福。下午逛完運河城後傍晚前往，剛好趕上 19:00 川岸祭！</p>
+          <div class="notice"><strong>費用：</strong>免費</div>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://www.nihondaiichisumiyoshigu.jp/rituals/" target="_blank" rel="noopener">祭典・行事 ｜ 筑前國一之宮 住吉神社【公式】</a></td>
+                    <td><span class="source-tag">住吉神社官方</span></td>
+                    <td>名越祭完整神事說明、時程、儀式意義</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://blog.ncbank.co.jp/posts/syokanomatsuri/" target="_blank" rel="noopener">福岡の季節を感じる神社行事＆地域のおまつり5選</a></td>
+                    <td><span class="source-tag">西日本シティ銀行（2025）</span></td>
+                    <td>茅の輪くぐり文化意義、人形流し參加方式</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://fukuokahakata.goguynet.jp/2024/07/25/nathumathuri/" target="_blank" rel="noopener">【福岡市博多区】博多の夏まつり情報まとめ2024</a></td>
+                    <td><span class="source-tag">号外NET（2024-07）</span></td>
+                    <td>現場資訊，住吉神社名越大祭時刻表與夏季限定御朱印</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>🏮 中洲屋台街 <span class="spot-tag dinner">晚餐</span></h3>
+          <p>點豚骨拉麵、鹽骨明太子、串燒；建議 18:30 前到卡位，現金為主。</p>
+          <div class="notice"><strong>注意：</strong>部分屋台週日公休，出發前確認 SNS。</div>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://matcha-jp.com/tw/3818" target="_blank" rel="noopener">初訪福岡必知的屋台潛規則！中洲、天神、長濱三大屋台街攻略</a></td>
+                    <td><span class="source-tag">MATCHA（2025-11）</span></td>
+                    <td>三大屋台區比較、入坐規則、必吃菜單、禮儀說明</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://tabicoffret.com/article/80714/" target="_blank" rel="noopener">【初心者必見】福岡・中洲屋台街で人気のお店を3軒はしごしてみた</a></td>
+                    <td><span class="source-tag">たびこふれ（2025-07）</span></td>
+                    <td>三間屋台實際探訪心得，入門者超友善</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.mina.ne.jp/trip/34128/" target="_blank" rel="noopener">屋台が楽しすぎる！福岡中洲からはじまるのんべえ旅</a></td>
+                    <td><span class="source-tag">mina（2025-08）</span></td>
+                    <td>推薦長濱「明太中毒」屋台，明太子蛋捲必點</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ DAY 2 ══ -->
+      <section class="day-section" id="day2">
+        <div class="day-header">
+          <span class="day-number">Day 2</span>
+          <span class="day-title">太宰府・柳川一日遊</span>
+          <span class="day-date">8/1（六）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>⛩️ 太宰府天滿宮</h3>
+          <p>參拜主殿（學業合格）、吃現烤梅ヶ枝餅、摸御神牛。</p>
+          <p><strong>交通：</strong>西鐵天神站搭特急→二日市轉普通車，約 35 分・¥420</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://kyushu.letsgojp.com/archives/572478/" target="_blank" rel="noopener">太宰府一日遊全攻略：交通、美食、景點、柳川延伸路線一次搞懂！</a></td>
+                    <td><span class="source-tag">樂吃購！日本（2026-04）</span></td>
+                    <td>最完整圖文、地圖、九州國立博物館、一蘭太宰府限定五角碗</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.funliday.com/posts/fukouka-5days/" target="_blank" rel="noopener">2026最新！福岡五天四夜自由行這樣排</a></td>
+                    <td><span class="source-tag">Funliday（2026-04）</span></td>
+                    <td>含太宰府天滿宮臨時正殿超美照片，最新資訊</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>🚣 柳川遊船 どんこ舟</h3>
+          <p>80 分鐘水鄉遊河，船夫撐篙唱民謠。</p>
+          <div class="notice"><strong>票券：</strong>西鐵「太宰府＋柳川」套票約 ¥2,700，也可用 my route APP 購買。</div>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://www.ryansdaily.com/yanagawa/" target="_blank" rel="noopener">福岡｜柳川遊船一日遊！太宰府柳川觀光套票一次吃鰻魚飯、賞四季景點</a></td>
+                    <td><span class="source-tag">萊恩日誌（2025-10）</span></td>
+                    <td>套票購買方式、遊船流程、鰻魚飯推薦</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://whatime.space/fukuoka-yanagawa/" target="_blank" rel="noopener">【2026柳川遊船套票＋太宰府】一日遊費用＋預約＋心得</a></td>
+                    <td><span class="source-tag">花時光旅行（2026-04）</span></td>
+                    <td>最新版心得，含遊船體驗短影片</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://thebeverlygarden.com/japan/kyushu/fukuoka/yanagawa/" target="_blank" rel="noopener">九州福岡近郊一日遊：柳川遊船享用三百年歷史蒸籠鰻魚飯</a></td>
+                    <td><span class="source-tag">Beverly 比猴俐（2024-10）</span></td>
+                    <td>遊船全程圖文，斗笠租借、本吉屋鰻魚飯</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>🍱 柳川鰻魚飯 せいろ蒸し <span class="spot-tag dinner">晚餐</span></h3>
+          <p>推薦：<strong>若松屋</strong>、<strong>本吉屋</strong>；需事先預約。</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://hk.wamazing.com/media/article/a-3308/" target="_blank" rel="noopener">水鄉柳川觀光 / 元祖本吉屋蒸籠鰻魚飯</a></td>
+                    <td><span class="source-tag">WAmazing（2024）</span></td>
+                    <td>本吉屋 300 年歷史、せいろ蒸し製法詳解</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ DAY 3 ══ -->
+      <section class="day-section" id="day3">
+        <div class="day-header">
+          <span class="day-number">Day 3</span>
+          <span class="day-title">糸島海岸・自然日</span>
+          <span class="day-date">8/2（日）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>🏖️ 二見浦・夫婦岩</h3>
+          <p>白色海中鳥居＋夫婦岩打卡，海灘玩水撿貝殼。大岩（男岩）高 9m、小岩（女岩）高 4m，注連繩高 35m。</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://www.funliday.com/posts/fukuoka-itoshima/" target="_blank" rel="noopener">2026福岡糸島一日遊｜8大美食景點與交通攻略</a></td>
+                    <td><span class="source-tag">Funliday（2026-01）</span></td>
+                    <td>最新版，含夫婦岩、海景咖啡廳 CURRENT、七星直賣所</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://gogojp.tw/itoshima/" target="_blank" rel="noopener">九州版夏威夷～福岡糸島行程如何安排？5大必玩糸島景點</a></td>
+                    <td><span class="source-tag">金金的日本旅（2026-03）</span></td>
+                    <td>大眾交通方式、腳踏車租借攻略</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://traveltokyushu.com/one-day-trip_in_itoshima/" target="_blank" rel="noopener">糸島一日遊｜白色鳥居、絕美海景、百選夕陽</a></td>
+                    <td><span class="source-tag">九州玩透透（2025-03）</span></td>
+                    <td>SUNSET 小屋打卡詳解、各景點順序建議</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>☕ 糸島海景咖啡廳 <span class="spot-tag lunch">午餐</span></h3>
+          <p>推薦：<strong>ANCHOR COFFEE</strong>、<strong>Beach Cafe SUNSET</strong>（夫婦岩旁）、<strong>CURRENT</strong>。</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://matcha-jp.com/tw/6110" target="_blank" rel="noopener">【最新】女孩必去的福岡「糸島」打卡一日遊！龍貓步道、二見浦夕陽、海景咖啡店</a></td>
+                    <td><span class="source-tag">MATCHA（2025-07）</span></td>
+                    <td>Beach Cafe SUNSET 詳細介紹、多間咖啡廳名單</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://kyushu.letsgojp.com/archives/300236/" target="_blank" rel="noopener">福岡近郊度假首選！來充滿藝術悠閒氣息的糸島讓身心深呼吸</a></td>
+                    <td><span class="source-tag">樂吃購！日本（2025-06）</span></td>
+                    <td>Sunset cafe 圖文、台灣人開的翼宿民宿介紹</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ DAY 4 ══ -->
+      <section class="day-section" id="day4">
+        <div class="day-header">
+          <span class="day-number">Day 4</span>
+          <span class="day-title">別府・地獄溫泉一日遊</span>
+          <span class="day-date">8/3（一）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>🌊 海地獄・鬼石坊主地獄</h3>
+          <p>鈷藍色 98°C 溫泉（海地獄）、灰色泥漿泡泡（鬼石坊主）。</p>
+          <div class="notice"><strong>票券：</strong>地獄巡遊一日通票 大人 ¥2,200 / 孩子 ¥1,000（現場買有優惠券可省錢）</div>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://twoslowbyron.com/beppu_hells/" target="_blank" rel="noopener">【大分】別府地獄巡禮｜七個特殊溫泉地獄及多種紀念品和土產</a></td>
+                    <td><span class="source-tag">Two Slow（2026-02）</span></td>
+                    <td>最新版，七大地獄全圖文記錄，極樂饅頭、伴手禮詳述</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://kimiyo.tw/beppu-jigoku/" target="_blank" rel="noopener">別府地獄溫泉巡禮・完整攻略</a></td>
+                    <td><span class="source-tag">喵爸喵媽玩轉地球（2026-01）</span></td>
+                    <td>親子視角，含地獄蒸工房午餐實況</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://kyushu.letsgojp.com/archives/619564/" target="_blank" rel="noopener">「別府周遊券」攻略：玩遍七大地獄溫泉</a></td>
+                    <td><span class="source-tag">樂吃購！日本（2026-01）</span></td>
+                    <td>票券攻略、各地獄特色比較表</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>♨️ 地獄蒸工房 鉄輪 <span class="spot-tag lunch">午餐</span></h3>
+          <p>自己動手蒸溫泉蛋、蔬菜、海鮮，使用 98°C 地熱蒸氣。</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://mimigo.tw/beppu-hell-room/" target="_blank" rel="noopener">【別府景點】地獄蒸工房鐵輪：溫泉煮蛋不稀奇，地獄溫泉蒸帝王蟹才夠看</a></td>
+                    <td><span class="source-tag">Mimi韓の旅遊指南（2025-11）</span></td>
+                    <td>詳細流程圖文（叫號→領單→擺盤→蒸熟→自取），親子體驗紀錄</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.kkday.com/zh-hk/blog/112790/beppu-jigoku" target="_blank" rel="noopener">九州別府景點自由行攻略2025</a></td>
+                    <td><span class="source-tag">KKday（2026-01）</span></td>
+                    <td>地獄蒸工房流程、別府整體景點規劃</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>🩸 血の池地獄・龍巻地獄</h3>
+          <p>血紅色溫泉（血池）、日本唯一天然間歇泉（龍巻，約 30–40 分噴發一次）。</p>
+          <p><em>參考文章同上方「別府地獄巡禮」系列。</em></p>
+        </div>
+      </section>
+
+      <!-- ══ DAY 5 ══ -->
+      <section class="day-section" id="day5">
+        <div class="day-header">
+          <span class="day-number">Day 5</span>
+          <span class="day-title">海洋世界・博多歷史老街</span>
+          <span class="day-date">8/4（二）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>🐠 マリンワールド海洋世界</h3>
+          <p>350 種 3 萬點海洋生物、鯊魚隧道、海豚・海獅秀、拉肚熊貓（ラッコ）、企鵝。</p>
+          <ul>
+            <li>2024/03 新開幕：「アイランドステージ」（海豹 360° 觀察）＋「ペンギンビーチ」</li>
+            <li>2026/03 新開幕：「いのちめぐる森」全新展區</li>
+            <li>夏休期間延長至 21:00「夜の水族館」開放</li>
+          </ul>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://activityjapan.com/feature/fukuoka-marine-world/" target="_blank" rel="noopener">福岡 マリンワールド海の中道 料金・休館日は？ラッコのリロ君など見どころを紹介！</a></td>
+                    <td><span class="source-tag">Activity Japan（2024-10）</span></td>
+                    <td>拉肚熊貓里路君、最新展區、夏季夜間活動說明</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://travel.rakuten.co.jp/mytrip/howto/marine-world-guide" target="_blank" rel="noopener">子連れにも優しい水族館。「マリンワールド海の中道」の楽しみ方徹底ガイド！</a></td>
+                    <td><span class="source-tag">樂天旅遊（2024）</span></td>
+                    <td>親子友善設施（哺乳室、嬰兒車租借）、海豚秀注意（前排會被濺濕！）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>🏯 東長寺・五重塔</h3>
+          <p>免費參觀，地下闇道（黑暗中摸牆行走體驗）最受孩子歡迎。</p>
+          <p><em>行前請參考 <a href="https://gofukuoka.jp/zh-tw/" target="_blank" rel="noopener">福岡市官方網站</a> 確認開放時間。</em></p>
+        </div>
+
+        <div class="spot-card">
+          <h3>🍲 博多もつ鍋 <span class="spot-tag dinner">晚餐</span></h3>
+          <p>牛腸鍋，需提前一週電話預約 <strong>おおやま博多本店</strong>。</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://hk.wamazing.com/media/article/a-3308/" target="_blank" rel="noopener">【福岡】10大牛腸鍋人氣店家推薦</a></td>
+                    <td><span class="source-tag">WAmazing</span></td>
+                    <td>福岡牛腸鍋文化、おおやま等名店推薦、點餐方式說明</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ DAY 6 ══ -->
+      <section class="day-section" id="day6">
+        <div class="day-header">
+          <span class="day-number">Day 6</span>
+          <span class="day-title">天神購物・最後衝刺</span>
+          <span class="day-date">8/5（三）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>🛒 天神地下街＆三越・岩田屋</h3>
+          <p>550m 地下街、藥妝、食品、雜貨一站式採購。</p>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://kyushu.letsgojp.com/archives/762387/" target="_blank" rel="noopener">博多運河城Canal City HAKATA：福岡最大購物中心</a></td>
+                    <td><span class="source-tag">樂吃購！日本（2026-01）</span></td>
+                    <td>含天神周邊購物整體攻略</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="spot-card">
+          <h3>🍽️ 晚餐（二選一）<span class="spot-tag dinner">晚餐</span></h3>
+
+          <div class="option-block">
+            <h4>Option A — 博多水炊（原計畫）</h4>
+            <p>雞骨白湯鍋，需提前一週以上預約 <strong>二○加屋長介</strong>（官網線上預約）。</p>
+            <div class="ref-section">
+              <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+              <div class="ref-table-wrap">
+                <table class="ref-table">
+                  <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="https://www.funliday.com/posts/fukouka-5days/" target="_blank" rel="noopener">2026最新！福岡五天四夜自由行這樣排</a></td>
+                      <td><span class="source-tag">Funliday（2026-04）</span></td>
+                      <td>含水炊き推薦餐廳與預約方式說明</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-block option-b">
+            <h4>🎆 Option B — 筑後川花火大會（若確定在 8/5 舉行）</h4>
+            <div class="fireworks-banner">
+              17:00 購物結束 → 搭 JR 鹿兒島本線→久留米（約 40 分・¥780）
+              → <strong>19:40–20:40</strong> 花火施放：約 15,000–18,000 發，西日本最大級，370 年歷史
+              → 21:30 左右搭 JR 返博多
+            </div>
+            <p>會場周邊 400 間以上屋台可吃晚餐。</p>
+            <div class="notice"><strong>注意：</strong>2026 年日期尚未公布，出發前確認 <a href="https://welcome-kurume.com/" target="_blank" rel="noopener">久留米市觀光官網</a>。免費觀賞（有料席另購）。</div>
+            <div class="ref-section">
+              <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+              <div class="ref-table-wrap">
+                <table class="ref-table">
+                  <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="https://www.crossroadfukuoka.jp/feature/chikugogawa" target="_blank" rel="noopener">筑後川花火大會 完全攻略ガイド</a></td>
+                      <td><span class="source-tag">福岡縣觀光官網（2025年版）</span></td>
+                      <td>六大觀覽會場、交通管制、JR/西鐵臨時列車</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://kurumefan.com/chikugogawahanabitaikai2025" target="_blank" rel="noopener">筑後川花火大会 2025年8月5日開催！西日本最大級</a></td>
+                      <td><span class="source-tag">久留米ファン（2025-07）</span></td>
+                      <td>臨時巴士、周邊屋台、親子觀覽建議</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://welcome-kurume.com/events/detail/ee39e5e5-fb6b-46b1-b16a-618264042dda" target="_blank" rel="noopener">第366回 筑後川花火大会の日程・開催情報</a></td>
+                      <td><span class="source-tag">久留米市觀光公式サイト</span></td>
+                      <td>6 會場地圖、交通規制時刻、YouTube 直播連結</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ DAY 7 ══ -->
+      <section class="day-section" id="day7">
+        <div class="day-header">
+          <span class="day-number">Day 7</span>
+          <span class="day-title">返台日</span>
+          <span class="day-date">8/6（四）</span>
+        </div>
+
+        <div class="spot-card">
+          <h3>✈️ CI129 — 19:10 福岡出發 → 20:35 桃園 T2</h3>
+          <p>回程比原計劃晚，下午時間充裕；建議 <strong>17:00 出發前往機場</strong>（起飛前 2 小時）。</p>
+        </div>
+
+        <div class="spot-card">
+          <h3>🎁 博多銘品蔵＆最後採購</h3>
+          <div class="ref-section">
+            <button class="ref-toggle" onclick="toggleRef(this)">📖 推薦參考文章 <span class="arrow">▼</span></button>
+            <div class="ref-table-wrap">
+              <table class="ref-table">
+                <thead><tr><th>文章標題</th><th>來源</th><th>特色</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://www.funliday.com/posts/fukouka-5days/" target="_blank" rel="noopener">【2026版】日本藥妝必買TOP40！最新熱銷清單＋必逛5大藥妝店推薦</a></td>
+                    <td><span class="source-tag">Funliday（2026-04）</span></td>
+                    <td>最新藥妝清單、博多伴手禮採購建議</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ 行前清單 ══ -->
+      <section class="checklist-section" id="checklist">
+        <h2>✅ 行前必辦清單</h2>
+
+        <div class="checklist-group">
+          <h3>📅 訂位（建議出發前 1–2 週）</h3>
+          <div class="check-item"><input type="checkbox" id="c1"><label for="c1">柳川鰻魚飯——本吉屋官網線上預約</label></div>
+          <div class="check-item"><input type="checkbox" id="c2"><label for="c2">地獄蒸工房——電話或官網（旺季強烈建議）</label></div>
+          <div class="check-item"><input type="checkbox" id="c3"><label for="c3">博多もつ鍋——おおやま電話預約</label></div>
+          <div class="check-item"><input type="checkbox" id="c4"><label for="c4">博多水炊——二○加屋長介官網線上預約（若選 Day 6 Option A）</label></div>
+          <div class="check-item"><input type="checkbox" id="c5"><label for="c5">糸島海景咖啡廳——食べログ或官網</label></div>
+        </div>
+
+        <div class="checklist-group">
+          <h3>🗓️ 接近出發前確認</h3>
+          <div class="check-item"><input type="checkbox" id="c6">
+            <label for="c6">確認筑後川花火大會 2026 年日期（<a href="https://welcome-kurume.com/" target="_blank" rel="noopener">久留米市觀光官網</a>）
+              <br><small>• 若確定 8/5 → Day 6 改 Option B，取消水炊預約</small>
+              <br><small>• 若不在 8/5 → 維持 Option A 水炊告別晚餐</small>
+            </label>
+          </div>
+        </div>
+
+        <div class="checklist-group">
+          <h3>🎫 票券（建議出發前購買）</h3>
+          <div class="check-item"><input type="checkbox" id="c7"><label for="c7">西鐵太宰府＋柳川套票（KKday / Klook / my route APP）</label></div>
+          <div class="check-item"><input type="checkbox" id="c8"><label for="c8">マリンワールド門票（可現場，或 KKday 預購省費）</label></div>
+          <div class="check-item"><input type="checkbox" id="c9"><label for="c9">IC 卡（Suica / ICOCA）充值</label></div>
+        </div>
+
+        <div class="checklist-group">
+          <h3>🎒 隨身裝備</h3>
+          <div class="check-item"><input type="checkbox" id="c10"><label for="c10">防曬乳 SPF50+（每人一條）</label></div>
+          <div class="check-item"><input type="checkbox" id="c11"><label for="c11">遮陽帽、小毛巾、防蚊液</label></div>
+          <div class="check-item"><input type="checkbox" id="c12"><label for="c12">好走的鞋（備兩雙輪換）</label></div>
+          <div class="check-item"><input type="checkbox" id="c13"><label for="c13">行動電源</label></div>
+        </div>
+
+        <div class="notice" style="margin-top:0.5rem;">
+          <strong>🌡️ 夏季注意：</strong>福岡 8 月均溫 34°C，體感近 38°C。每天行程安排室內緩衝時段（水族館、購物商場）。孩子補水目標：每小時至少 200ml。
+        </div>
+      </section>
+
+      <!-- ══ 住宿建議 ══ -->
+      <section class="checklist-section" id="hotels" style="margin-top:1.5rem;">
+        <h2>🏨 住宿建議</h2>
+        <table class="hotel-table">
+          <thead>
+            <tr><th>飯店名稱</th><th>特色</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Vessel Hotel Campana Fukuoka</td><td>親子友善，設施齊全</td></tr>
+            <tr><td>JR Kyushu Hotel Blossom Hakata</td><td>博多站直結，交通最便利</td></tr>
+            <tr><td>Candeo Hotels 博多</td><td>頂樓溫泉，性價比高</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ── Version Footer ── -->
+      <div class="version-footer">
+        <p>最後更新：<strong>v1.3</strong>　2026-04-16</p>
+        <p>v1.0→v1.1：為所有主要景點新增 2024–2026 年最新部落客參考文章</p>
+        <p>v1.1→v1.2：加入機票資訊（CI110/CI129）、更正日期星期；Day 1 新增住吉神社名越祭；Day 6 新增筑後川花火大會 Option B</p>
+        <p>v1.2→v1.3：為住吉神社名越祭、筑後川花火大會兩個活動新增參考文章連結</p>
+        <p style="margin-top:0.5rem;">下一步：確認訂位＋花火日期後更新為 v1.4</p>
+        <a class="back-link" href="../../../index.html">← 返回 Web Apps 作品集首頁</a>
+      </div>
+
+    </div><!-- /container -->
+
+    <script>
+      function toggleRef(btn) {
+        const wrap = btn.nextElementSibling;
+        const isOpen = wrap.classList.toggle('open');
+        btn.classList.toggle('open', isOpen);
+      }
+    </script>
+
+  </body>
+</html>
