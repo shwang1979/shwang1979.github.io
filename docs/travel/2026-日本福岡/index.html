@@ -454,6 +454,30 @@
         .day-header { padding: 0.8rem 1rem; }
         .spot-card  { padding: 1rem; }
       }
+
+      /* ── Day Body Collapsible ── */
+      .day-header {
+        cursor: pointer;
+        user-select: none;
+      }
+      .day-header::after {
+        content: '\25B2';
+        font-size: 0.85rem;
+        opacity: 0.7;
+        margin-left: 0.6rem;
+        flex-shrink: 0;
+        transition: transform 0.25s;
+        display: inline-block;
+      }
+      .day-header.collapsed::after {
+        transform: rotate(180deg);
+      }
+      .day-body {
+        display: none;
+      }
+      .day-body.open {
+        display: block;
+      }
     </style>
 
     <!-- ── Hypothesis 家人行程反饋標注系統（私密群組：福岡行程討論）── -->
@@ -621,11 +645,12 @@
 
       <!-- ══ DAY 1 ══ -->
       <section class="day-section" id="day1">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 1</span>
           <span class="day-title">抵達・博多初體驗</span>
           <span class="day-date">7/31（五）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>🧳 行李處置（抵達第一步）</h3>
@@ -766,15 +791,18 @@
             </tbody>
           </table>
         </div>
+      
+        </div>
       </section>
 
       <!-- ══ DAY 2 ══ -->
       <section class="day-section" id="day2">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 2</span>
           <span class="day-title">太宰府・中洲屋台</span>
           <span class="day-date">8/1（六）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>⛩️ 太宰府天滿宮</h3>
@@ -934,15 +962,18 @@
             <a href="https://www.google.com/maps/search/?api=1&query=九州国立博物館+太宰府" target="_blank" rel="noopener">📍 九州國立博物館</a>
           </p>
         </div>
+      
+        </div>
       </section>
 
       <!-- ══ DAY 3 ══ -->
       <section class="day-section" id="day3">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 3</span>
           <span class="day-title">熊本一日遊</span>
           <span class="day-date">8/2（日）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>🚄 交通計畫（博多 ⇄ 熊本 日歸）</h3>
@@ -1113,13 +1144,16 @@
             <a href="https://www.google.com/maps/search/?api=1&query=水前寺成趣園+熊本市" target="_blank" rel="noopener">📍 水前寺成趣園</a>
           </p>
         </div>
+      
+        </div>
       </section>
       <section class="day-section" id="day4">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 4</span>
           <span class="day-title">別府・地獄溫泉一日遊</span>
           <span class="day-date">8/3（一）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>🚄 交通計畫（博多 ⇄ 別府 日歸）</h3>
@@ -1236,15 +1270,18 @@
             <a href="https://www.google.com/maps/search/?api=1&query=MARK+IS+福岡ももち" target="_blank" rel="noopener">📍 MARK IS ももち</a>
           </p>
         </div>
+      
+        </div>
       </section>
 
       <!-- ══ DAY 5 ══ -->
       <section class="day-section" id="day5">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 5</span>
           <span class="day-title">佐世保・九十九島一日遊</span>
           <span class="day-date">8/4（二）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>🚄 交通計畫（博多 ⇄ 佐世保 日歸）</h3>
@@ -1427,15 +1464,18 @@
             <a href="https://www.google.com/maps/search/?api=1&query=マリンワールド海の中道+福岡市" target="_blank" rel="noopener">📍 マリンワールド 海の中道</a>
           </p>
         </div>
+      
+        </div>
       </section>
 
       <!-- ══ DAY 6 ══ -->
       <section class="day-section" id="day6">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 6</span>
           <span class="day-title">天神購物・晚間分頭行動</span>
           <span class="day-date">8/5（三）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>🛒 天神地下街＆三越・岩田屋</h3>
@@ -1538,15 +1578,18 @@
             <a href="https://www.google.com/maps/search/?api=1&query=二加屋長介+博多" target="_blank" rel="noopener">📍 二○加屋長介 博多</a>
           </p>
         </div>
+      
+        </div>
       </section>
 
       <!-- ══ DAY 7 ══ -->
       <section class="day-section" id="day7">
-        <div class="day-header">
+        <div class="day-header collapsed" onclick="toggleDay(this)">
           <span class="day-number">Day 7</span>
           <span class="day-title">返台日</span>
           <span class="day-date">8/6（四）</span>
         </div>
+        <div class="day-body">
 
         <div class="spot-card">
           <h3>✈️ CI129 — 19:10 福岡出發 → 20:35 桃園 T2</h3>
@@ -1608,6 +1651,8 @@
         <div class="spot-card" style="border-left-color:#90caf9;background:#f3f8ff;">
           <h3>☔ 雨天備案（Day 7）</h3>
           <p>博多駅地下層為全封閉室內大型購物商場，雨天採購完全不影響行程，安心前往機場。</p>
+        </div>
+      
         </div>
       </section>
 
@@ -1693,6 +1738,12 @@
     </div><!-- /container -->
 
     <script>
+
+      function toggleDay(header) {
+        const body = header.nextElementSibling;
+        const isOpen = body.classList.toggle('open');
+        header.classList.toggle('collapsed', !isOpen);
+      }
       function toggleRef(btn) {
         const wrap = btn.nextElementSibling;
         const isOpen = wrap.classList.toggle('open');
