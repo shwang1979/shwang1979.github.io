@@ -557,6 +557,142 @@
         transform: translateY(-1px);
       }
 
+      /* ── 交通地圖速查：浮動按鈕與燈箱 Modal ── */
+      .transit-map-fab {
+        position: fixed;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        z-index: 999;
+        background: linear-gradient(135deg, var(--kawaii-mint), var(--kawaii-blue));
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 0.9rem 1.3rem;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        box-shadow: 0 6px 20px rgba(76, 201, 240, 0.45);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .transit-map-fab:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 10px 26px rgba(76, 201, 240, 0.55);
+      }
+      .transit-map-fab i.fa-train-subway { font-size: 1.2rem; }
+
+      .transit-map-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(43, 45, 66, 0.6);
+        backdrop-filter: blur(3px);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      .transit-map-modal.active { display: flex; }
+
+      .transit-map-modal-content {
+        background: #fff;
+        border-radius: 24px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 1.8rem;
+        position: relative;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      }
+      .transit-map-modal-content h3 {
+        font-family: 'Fredoka One', 'Noto Sans TC', sans-serif;
+        color: var(--kawaii-dark);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.3rem;
+      }
+      .transit-map-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--kawaii-lightpink);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        color: var(--japan-red);
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .transit-map-close:hover { background: var(--kawaii-pink); color: #fff; }
+
+      .transit-map-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+      }
+      .transit-tab-btn {
+        border: 2px solid var(--kawaii-mint);
+        background: #fff;
+        color: var(--kawaii-mint);
+        border-radius: 50px;
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: all 0.2s;
+      }
+      .transit-tab-btn.active, .transit-tab-btn:hover {
+        background: var(--kawaii-mint);
+        color: #fff;
+      }
+
+      .transit-map-pane { display: none; text-align: center; }
+      .transit-map-pane.active { display: block; animation: slideIn 0.3s ease forwards; }
+      .transit-map-pane img {
+        max-width: 100%;
+        border-radius: 12px;
+        border: 1px solid #eee;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+      .transit-map-actions { margin-top: 1rem; }
+      .transit-map-credit {
+        margin-top: 0.6rem;
+        font-size: 0.75rem;
+        color: #888;
+      }
+      .transit-map-pdf-card {
+        padding: 2.5rem 1.5rem;
+        background: var(--kawaii-lightmint);
+        border-radius: 16px;
+      }
+      .transit-map-pdf-card i {
+        font-size: 3rem;
+        color: var(--kawaii-mint);
+        margin-bottom: 1rem;
+      }
+      .transit-map-pdf-card p {
+        margin-bottom: 1.2rem;
+        color: var(--kawaii-dark);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 600px) {
+        .transit-map-fab .fab-label { display: none; }
+        .transit-map-fab { padding: 0.9rem; border-radius: 50%; }
+      }
+
       /* 美食餐廳表格推薦 */
       .cute-table-wrap {
         overflow-x: auto;
@@ -977,6 +1113,38 @@
         </div>
 
         <div class="timeline-flow">
+          <!-- Spot 0: 送機接送 -->
+          <div class="node-card transport-accent" data-category="transport">
+            <div class="node-dot"><i class="fa-solid fa-car"></i></div>
+            <div class="node-header">
+              <div class="node-title">🚐 國泰世華機場送機接送（已預約）</div>
+              <div class="node-badge-group">
+                <span class="node-badge badge-transport">交通</span>
+              </div>
+            </div>
+            <div class="node-body">
+              <p>已預約國泰世華機場接送，7人座轎車於清晨 <strong>03:30</strong> 到府接送，直達桃園機場 T2，準時搭乘 06:50 CI110 班機。</p>
+              <div class="route-visual">
+                <div class="route-step">
+                  <span class="time-bubble">03:30</span>
+                  <span><i class="fa-solid fa-house"></i> 家門口上車（七人座）</span>
+                </div>
+                <div class="route-arrow"><i class="fa-solid fa-arrow-down"></i> 直達桃園機場</div>
+                <div class="route-step">
+                  <span class="time-bubble">~05:30</span>
+                  <span><i class="fa-solid fa-plane-departure"></i> 桃園機場 T2 準備報到</span>
+                </div>
+              </div>
+              <a href="https://www.youfirst.com.tw/cathaybank/airport/order_completed.aspx?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOiIxNzgzMTIwODU2Iiwib2lkIjoiODBkZjg0OGMtZmU5OS00OTZhLWJhZTktMDJlYTFkM2FlMTJmIiwiY3VzdG9tZXJ0eXBlaWQiOiIyMDc1IiwiY2FyZG5vIjoiNDI4NDMwNjgwNjcyOTY0NiIsImNhcmRleHBpcmUiOiIwNS8yNyIsImN2djIiOm51bGwsIm1vYmlsZSI6IjA5MjkxNTAxOTciLCJtb2JpbGUyIjpudWxsLCJuYXRpb25hbG51bWJlciI6bnVsbCwibmF0aW9uYWxudW1iZXIyIjpudWxsLCJwYXl0eXBlaWQiOm51bGwsImNhcmRuYW1lIjoi546L5aOr56uRIiwiY2FyZG5hbWUyIjpudWxsLCJjYXJkc2V4IjpudWxsLCJjYXJkaWQiOiIiLCJlbWFpbCI6InNod2FuZzE5NzlAZ21haWwuY29tIiwic2VydmljZXR5cGUiOiLpgIHmqZ8iLCJjaGFydGVyc2VydmljZWRhdGV0eXBlIjpudWxsLCJjaGFydGVyc2VydmljZWNvdW50IjpudWxsLCJhaXJwb3J0bmFtZSI6Iuahg-WckiIsIndlYmFpcnBvcnRuYW1lIjoi5qGD5ZyS5ZyL6Zqb5qmf5aC0KFRQRSkiLCJhaXJwb3J0bm8iOiJDSTExMCIsImFpcnBvcnRidWlsZCI6IjIiLCJjaXR5Ijoi6IuX5qCX57ijIiwiYXJlYSI6IuerueWNl-mOriIsImFkZHJlc3MiOiLplovlhYPot682NeiZnzRGLTMiLCJjaXR5MiI6bnVsbCwiYXJlYTIiOm51bGwsImFkZHJlc3MyIjpudWxsLCJEaXN0YW5jZUtNIjpudWxsLCJvcmRlcmRhdGV0aW1lIjoiMjAyNi0wNy0zMSAwMzozMCIsImFpcmRhdGV0aW1lIjoiMjAyNi0wNy0zMSAwNjo1MCIsImFpcmZhcmVkYXRlIjoiIiwiYWlyZmFyZSI6IiIsImNhcnR5cGUiOiLkuIPkurrluqciLCJyYWlzZWJvYXJkIjoiMCIsInJhaXNlYm9hcmRuYW1lIjoiIiwiQ2FycnlQZXQiOm51bGwsIm9yZGVycGVvcGxlIjoiMyIsIkNoaWxkU2FmZXR5U2VhdDAwMDEiOiIwIiwiQ2hpbGRTYWZldHlTZWF0MDEwNCI6IjAiLCJDaGlsZFNhZmV0eVNlYXQwNDEyIjoiMSIsInVzZWludGVyZXN0Y291bnQiOm51bGwsIkJhZ2dhZ2VfU21hbGwiOiIxIiwiQmFnZ2FnZV9NZWRpdW0iOiIxIiwiQmFnZ2FnZV9sYXJnZSI6IjIiLCJjYXJ0ZWFtbWVtbyI6IiIsIkludm9pY2VUeXBlIjoiNCIsInVubyI6IiIsImJ1eWVybmFtZSI6IiIsInJlY2VpcHRjaXR5IjoiIiwicmVjZWlwdGFyZWEiOiIiLCJyZWNlaXB0YWRkcmVzcyI6IiIsInNlcmlhbGlkIjoiRjE1MzMyNzYyIiwidG90YWxjb3N0IjoiMjYwMCIsImdvbGZjb3VudCI6IjAiLCJvdGhlcnN0ciI6IiIsImlzYWRkc3RvcCI6bnVsbCwiaXNMdXh1cnkiOiIwIn0.3BHUmnodsC7cX6PRJIoDRoRtUUNtZISJLMeZJexDI4E" target="_blank" rel="noopener" class="map-glow-btn"><i class="fa-solid fa-file-invoice"></i> 國泰世華機場接送預約平台 - 訂單查詢</a>
+              <div class="tip-highlight">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                  <strong>訂單編號：</strong>F15332762．費用 NT$2,600．請留意此連結內含個人資訊，勿在公開場合分享畫面。
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Spot 1: 行李 -->
           <div class="node-card" data-category="transport">
             <div class="node-dot"><i class="fa-solid fa-suitcase"></i></div>
@@ -1770,6 +1938,48 @@
 
     </div>
 
+    <!-- ── 交通地圖速查：浮動按鈕（不論切換到哪個頁籤都會顯示）── -->
+    <button id="transitMapFab" class="transit-map-fab" onclick="openTransitMapModal()" aria-label="交通地圖速查">
+      <i class="fa-solid fa-train-subway"></i>
+      <span class="fab-label">交通地圖</span>
+    </button>
+
+    <!-- ── 交通地圖速查 Modal ── -->
+    <div id="transitMapModal" class="transit-map-modal" onclick="closeTransitMapModalOutside(event)">
+      <div class="transit-map-modal-content">
+        <button class="transit-map-close" onclick="closeTransitMapModal()" aria-label="關閉"><i class="fa-solid fa-xmark"></i></button>
+        <h3><i class="fa-solid fa-map-location-dot"></i> 交通地圖速查</h3>
+        <div class="transit-map-tabs">
+          <button class="transit-tab-btn active" data-map="subway" onclick="switchTransitMap('subway')"><i class="fa-solid fa-train-subway"></i> 福岡地下鐵</button>
+          <button class="transit-tab-btn" data-map="jr" onclick="switchTransitMap('jr')"><i class="fa-solid fa-train"></i> JR九州</button>
+          <button class="transit-tab-btn" data-map="nishitetsu" onclick="switchTransitMap('nishitetsu')"><i class="fa-solid fa-train-tram"></i> 西鐵電車</button>
+        </div>
+        <div class="transit-map-body">
+          <div class="transit-map-pane active" id="pane-subway">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Fukuoka_city_subway_map_JA_2023.png" alt="福岡市地下鐵路線圖" loading="lazy">
+            <div class="transit-map-actions">
+              <a href="https://commons.wikimedia.org/wiki/File:Fukuoka_city_subway_map_JA_2023.png" target="_blank" rel="noopener" class="map-glow-btn"><i class="fa-solid fa-up-right-from-square"></i> 開新分頁看原圖</a>
+            </div>
+            <p class="transit-map-credit">圖片來源：Wikimedia Commons（CC BY-SA 4.0，反映2023年七隈線延伸至博多站後的最新路網）</p>
+          </div>
+          <div class="transit-map-pane" id="pane-jr">
+            <div class="transit-map-pdf-card">
+              <i class="fa-solid fa-file-pdf"></i>
+              <p>JR九州官方「駅ナンバリング路線図（北部九州エリア）」<br>涵蓋博多・小倉・門司港・鳥栖・佐賀・唐津等站點編號，正好對應此行程的新幹線與在來線移動路段。</p>
+              <a href="https://www.jrkyushu.co.jp/railway/routemap/rootmap_num.pdf" target="_blank" rel="noopener" class="map-glow-btn"><i class="fa-solid fa-up-right-from-square"></i> 開新分頁看 PDF</a>
+            </div>
+          </div>
+          <div class="transit-map-pane" id="pane-nishitetsu">
+            <img src="https://www.nishitetsu.jp/assets/images/common/train_routemap_ext.png" alt="西日本鐵道路線圖" loading="lazy">
+            <div class="transit-map-actions">
+              <a href="https://www.nishitetsu.jp/train/rosen/" target="_blank" rel="noopener" class="map-glow-btn"><i class="fa-solid fa-up-right-from-square"></i> 開新分頁看官網</a>
+            </div>
+            <p class="transit-map-credit">圖片來源：西日本鐵道株式會社官方網站（涵蓋天神大牟田線・太宰府線・甘木線・貝塚線）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ── 櫻花頁尾 ── -->
     <div class="bottom-illustration">🌸 🗼 🏯 ⛩️ 🍜 🎆 🛫</div>
     
@@ -1878,6 +2088,26 @@
           });
         });
       });
+
+      // ── 交通地圖速查 Modal 控制 ──
+      function openTransitMapModal() {
+        document.getElementById('transitMapModal').classList.add('active');
+      }
+      function closeTransitMapModal() {
+        document.getElementById('transitMapModal').classList.remove('active');
+      }
+      function closeTransitMapModalOutside(e) {
+        if (e.target.id === 'transitMapModal') closeTransitMapModal();
+      }
+      function switchTransitMap(mapId) {
+        document.querySelectorAll('.transit-tab-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-map') === mapId);
+        });
+        document.querySelectorAll('.transit-map-pane').forEach(pane => {
+          pane.classList.remove('active');
+        });
+        document.getElementById('pane-' + mapId).classList.add('active');
+      }
 
       // 展開與摺疊參考連結小風琴 (Accordion)
       function toggleLocalAccordion(btn) {
