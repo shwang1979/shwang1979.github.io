@@ -27,11 +27,12 @@
 
 ---
 
-### Day 3　8/2（日）　熊本一日遊
+### Day 3　8/2（日）　博多市內備案（原熊本行程因地震取消）
 
-🏨 博多 → 🚄 JR熊本（新幹線 38分）→ 🏯 熊本城（参観）→ 🍽️ 馬肉料理 or 熊本拉麵 → 🌿 水前寺成趣園 → 🚄 博多（返回）
+🏨 博多 → 🏛️ 福岡市博物館（金印・国宝）→ 🍽️ MARK IS ももち 午餐 → 🗼 福岡タワー → 🌊 ももち海浜公園 → 🛍️ MARK IS ももち → 🏨 博多
 
-> ☔ **雨天備案**：熊本城有遮蓋通道雨天照常；大雨 → 熊本市立博物館（全室內，¥400）；颱風停駛 → 留博多
+> ⚠️ **行程變更**：2026-07-28 熊本發生 M7.1・最大震度7「令和8年熊本地震」，氣象廳警告震後約一週（至 8/4 前後）仍有強餘震風險，涵蓋 8/2，熊本城預計封閉。基於安全與救災優先，原熊本一日遊取消，改為博多市內室內備案。
+> ☔ **雨天備案**：本備案以室內為主（博物館・商場・展望塔），雨天照常；ももち海浜公園大雨則跳過。
 
 ---
 
@@ -73,7 +74,7 @@
 ### 🧳 行李處置（抵達第一步）
 
 - 出關後（約 10:30）**不先去景點**，直接搭機場地鐵至**福岡皇家花園飯店**
-- 機場地鐵：機場 → 博多駅（約 5 分・¥260）→ 步行至 [📍 福岡皇家花園飯店](https://www.google.com/maps/search/?api=1&query=福岡皇家花園飯店+博多) 寄放行李（10–15 分）　[📍 福岡空港](https://www.google.com/maps/search/?api=1&query=福岡空港駅) → [📍 博多駅](https://www.google.com/maps/search/?api=1&query=JR博多駅)
+- 機場地鐵：機場 → 博多駅（約 5 分・¥260）→ 步行至 [📍 福岡皇家花園飯店](https://www.google.com/maps/dir/?api=1&destination=福岡皇家花園飯店+博多) 寄放行李（10–15 分）　[📍 福岡空港](https://www.google.com/maps/dir/?api=1&destination=福岡空港駅) → [📍 博多駅](https://www.google.com/maps/dir/?api=1&destination=JR博多駅)
 - 福岡皇家花園飯店可於 15:00 前寄放行李，辦完約 **11:00** 可輕裝出發
 - **備選**：機場內可利用ヤマト宅急便寄送行李至飯店（約 ¥1,500/件，下午或翌日到達）
 
@@ -81,7 +82,7 @@
 
 ### 🍜 午餐（約 11:30）
 
-推薦：**KITTE 博多 B1F 博多グルメ街道**（博多駅直結，步行 5 分）　[📍 KITTE 博多 Google Maps](https://www.google.com/maps/search/?api=1&query=KITTE博多)
+推薦：**KITTE 博多 B1F 博多グルメ街道**（博多駅直結，步行 5 分）　[📍 KITTE 博多 Google Maps](https://www.google.com/maps/dir/?api=1&destination=KITTE博多)
 
 | 餐廳 | 特色 | 適合族群 |
 |------|------|---------|
@@ -95,7 +96,7 @@
 
 ### 🏙️ 博多運河城 Canal City
 
-- 逛購物中心、看整點噴泉水舞秀、PS Kids 廣場- **交通**：博多駅 Hakata Exit 步行 6 分　[📍 Canal City Hakata Google Maps](https://www.google.com/maps/search/?api=1&query=Canal+City+Hakata)- **注意**：暑假人潮多，噴泉秀整點演出，提前 5 分鐘站好位置；UNIQLO 博多運河城店已關閉，請改至 KITTE 博多店
+- 逛購物中心、看整點噴泉水舞秀、PS Kids 廣場- **交通**：博多駅 Hakata Exit 步行 6 分　[📍 Canal City Hakata Google Maps](https://www.google.com/maps/dir/?api=1&destination=Canal+City+Hakata)- **注意**：暑假人潮多，噴泉秀整點演出，提前 5 分鐘站好位置；UNIQLO 博多運河城店已關閉，請改至 KITTE 博多店
 - **準備**：事先下載樓層地圖；確認當天水舞秀時刻（夜間加入 3D 投影超壯觀）
 
 📖 **推薦參考文章**
@@ -109,7 +110,7 @@
 
 ### ⭐ 住吉神社「名越祭・川岸祭」（當晚 18:30–20 時）【v1.2 新增】
 
-- **地點**：博多 筑前國一之宮 住吉神社（博多站步行 10 分）　[📍 Google Maps](https://www.google.com/maps/search/?api=1&query=住吉神社+博多区+福岡)
+- **地點**：博多 筑前國一之宮 住吉神社（博多站步行 10 分）　[📍 Google Maps](https://www.google.com/maps/dir/?api=1&destination=住吉神社+博多区+福岡)
 - **時程**：本殿祭（茅の輪くぐり）10:00 / **川岸祭（人形流し神事）19:00**
 - **內容**：用紙製人形承接一整年的罪與穢氣，傍晚投入河中隨流而去；穿越茅の輪大圓環可消災祈福
 - **建議**：下午逛完運河城後傍晚前往，剛好趕上 19:00 川岸祭，日本傳統神事氣氛極佳！
@@ -149,12 +150,12 @@
 ### 太宰府天滿宮
 
 - 參拜主殿（學業合格）、吃現烤梅ヶ枝餅、摸御神牛
-- **交通（選項 A）西鐵電車**：西鐵天神站搭特急→二日市轉普通車，約 35 分、¥420/人　[📍 西鐵天神駅](https://www.google.com/maps/search/?api=1&query=西鐵福岡天神駅) → [📍 太宰府天満宮](https://www.google.com/maps/search/?api=1&query=太宰府天満宮)
+- **交通（選項 A）西鐵電車**：西鐵天神站搭特急→二日市轉普通車，約 35 分、¥420/人　[📍 西鐵天神駅](https://www.google.com/maps/dir/?api=1&destination=西鐵福岡天神駅) → [📍 太宰府天満宮](https://www.google.com/maps/dir/?api=1&destination=太宰府天満宮)
 - **交通（選項 B）🚌 福岡露天觀光巴士「太宰府路線」**：天神高速バスターミナル（Solaria Stage 3F）出發，沿途經福岡機場、太宰府政廳遺址，約 60 分直達；雙層開頂巴士附繁體中文語音導覽，暑假晴天景觀絕佳
   - 班次（天神→太宰府）：**09:45 / 13:00**（每日運行）
   - 票價：大人 ¥2,000 / 兒童（國小以下）¥1,000
   - ⚠️ 需提前網路預約；強風大雨可能停運（雨天提供簡易雨衣）
-  - [🔗 官網預約](https://fukuokaopentopbus.jp/zh-TW/courses/dazaifu/) ｜ [📍 天神高速バスターミナル Google Maps](https://www.google.com/maps/search/?api=1&query=天神高速バスターミナル+福岡市中央区天神)
+  - [🔗 官網預約](https://fukuokaopentopbus.jp/zh-TW/courses/dazaifu/) ｜ [📍 天神高速バスターミナル Google Maps](https://www.google.com/maps/dir/?api=1&destination=天神高速バスターミナル+福岡市中央区天神)
 - **建議時間**：08:30 出發（選項 A）或搭 09:45 露天巴士（選項 B）；趕在週六人潮最高峰前完成參拜
 - **⚠️ 週六人潮提醒**：暑假週末太宰府排隊時間可能超過 1 小時，建議主殿參拜後直接前往梅枝餅，九州國立博物館可視時間彈性參觀
 
@@ -199,23 +200,23 @@
 #### 🎮 アニメイト 福岡パルコ店
 - 福岡最大動漫屃展店，圖將、BD/CD、周邊商品、同人誌齊全，**國二哥哥重點戰場**
 - 建議時間：60–90 分鐘
-- [📍 アニメイト 福岡パルコ店 Google Maps](https://www.google.com/maps/search/?api=1&query=アニメイト+福岡パルコ店)
+- [📍 アニメイト 福岡パルコ店 Google Maps](https://www.google.com/maps/dir/?api=1&destination=アニメイト+福岡パルコ店)
 
 #### 🕹️ ACOS 福岡天神店
 - 動漫角色週邀、扭蛋機、cosplay 小物，小四弟弟也會感興趣
-- [📍 ACOS 福岡天神店 Google Maps](https://www.google.com/maps/search/?api=1&query=ACOS+福岡天神店)
+- [📍 ACOS 福岡天神店 Google Maps](https://www.google.com/maps/dir/?api=1&destination=ACOS+福岡天神店)
 
 #### 🎰 Round1 天神店
 - UFO 抓娃娃機、太鼓達人、音遊、彈珠機，哥哥抓機弟弟抓娃娃全家一起玩
 - 預算：約 ¥500–1,500/人（視遊玩數量）
-- [📍 Round1 天神店 Google Maps](https://www.google.com/maps/search/?api=1&query=Round1+天神+福岡)
+- [📍 Round1 天神店 Google Maps](https://www.google.com/maps/dir/?api=1&destination=Round1+天神+福岡)
 
 ---
 
 ### 🏮 中洲屋台街（晚餐，由 Day 1 移至此日）
 
 - 從 Round1 步行約 **12 分**就走到中洲屋台，跡続流畅
-- 建議 **17:30–18:00** 抵達，卡好位置再點菜，週六人潮多要有等待心理準備　[📍 中洲屋台街](https://www.google.com/maps/search/?api=1&query=中洲屋台+博多市+福岡)
+- 建議 **17:30–18:00** 抵達，卡好位置再點菜，週六人潮多要有等待心理準備　[📍 中洲屋台街](https://www.google.com/maps/dir/?api=1&destination=中洲屋台+博多市+福岡)
 - 點豚骨拉麵、鹽骨明太子、串燒；現金為主
 - **注意**：部分屋台週日公休，此日為週六可正常營業
 
@@ -229,13 +230,103 @@
 | **太宰府大雨** | 轉至 **九州國立博物館**（步行 5 分，全室內）冷氣舒適，大人 ¥700，4 樓亞洲文化常設展豐富 |
 | **晚間大雨** | 中洲屋台改 **KITTE 博多 B1F**（步行 15 分），多元料理、寬敞座位 |
 
-[📍 九州國立博物館](https://www.google.com/maps/search/?api=1&query=九州国立博物館+太宰府)
+[📍 九州國立博物館](https://www.google.com/maps/dir/?api=1&destination=九州国立博物館+太宰府)
 
 ---
 
 ---
 
-## Day 3　8/2（日）　熊本一日遊
+## Day 3　8/2（日）　博多市內備案（原熊本行程因地震取消）
+
+> ⚠️ **行程變更說明**：2026-07-28 16:27 熊本縣發生 M7.1、最大震度7 之「令和8年熊本地震」，已釀多人傷亡，海嘯注意報一度發布。氣象廳警告震後約一週（至 8/4 前後）仍可能出現最大震度7 之餘震，8/2 落在警戒窗內，熊本城亦預計封閉。基於**安全與救災優先**，D3 熊本一日遊取消，改為以下博多市內室內備案。原熊本詳細行程保留於本段末（可展開／備日後還原）。
+
+### 🚇 交通計畫（博多 → ももち地區）
+
+| 路段 | 方式 | 所需時間 | 費用/人 |
+|------|------|----------|--------|
+| 博多駅 → 西新駅 | 地下鉄空港線 | 約 11 分 | ¥260 |
+| 西新駅 → 福岡市博物館 | 步行 或 西鉄バス | 約 15 分 / 5 分 | ¥0 / ¥190 |
+
+- 亦可自博多駅搭西鉄バス直達「博物館北口・PayPayドーム前」一帶，免轉乘
+- [📍 福岡市博物館](https://www.google.com/maps/dir/?api=1&destination=福岡市博物館) | [📍 MARK IS 福岡ももち](https://www.google.com/maps/dir/?api=1&destination=MARK+IS+福岡ももち) | [📍 福岡タワー](https://www.google.com/maps/dir/?api=1&destination=福岡タワー)
+
+**當日時序：**
+```
+09:30  JR博多駅 出發（地下鉄空港線）
+09:45  西新駅 抵達，步行 or バス往ももち
+10:00  🏛️ 福岡市博物館 抵達（開館 9:30）
+10:00–12:00  福岡市博物館 参観（国宝「金印・漢委奴国王印」）
+12:00–13:15  🍽️ 午餐 @ MARK IS ももち（美食街・餐廳多選）
+13:15–14:30  🗼 福岡タワー 展望（123m 展望室，全室內冷氣）
+14:30–15:15  🌊 ももち海浜公園・マリゾン 濱海散策（大雨則跳過）
+15:15–16:30  🛍️ MARK IS ももち 購物・咖啡・親子設施
+16:30  搭バス/地下鉄 返回博多
+17:00  JR博多駅 抵達
+```
+
+> 💡 **備註**：全程步行距離短、以室內冷氣空間為主，八月酷暑與雨天皆宜，親子友善；如遇餘震避難指示，室內館所疏散動線明確。
+
+---
+
+### 🏛️ 福岡市博物館
+
+- 常設展鎮館之寶為**国宝「金印（漢委奴国王印）」**，另有黑田家史料，室內冷氣，親子友善
+- **開放時間**：9:30–17:30（最終入場 17:00）；週一休 → **8/2 為週日，照常開館**
+- **入場費**：常設展 大人 ¥200 / 高大生 ¥150 / **中學生以下免費**
+- **交通**：地下鉄「西新」駅步行約 15 分，或西鉄バス「博物館南口」下車即達
+- [📍 福岡市博物館 Google Maps](https://www.google.com/maps/dir/?api=1&destination=福岡市博物館+福岡市)
+
+---
+
+### 🗼 福岡タワー
+
+- 高 234m 海濱地標，123m 全周展望室可眺博多灣與福岡市街，全室內
+- **開放時間**：9:30–22:00（最終入場 21:30）
+- **入場費**：大人 ¥800 / 小中學生 ¥500 / 幼兒（4歲以上）¥200
+- **交通**：與福岡市博物館・MARK IS 步行可達，同屬ももち地區
+- [📍 福岡タワー Google Maps](https://www.google.com/maps/dir/?api=1&destination=福岡タワー+福岡市)
+
+---
+
+### 🛍️ MARK IS 福岡ももち／🌊 ももち海浜公園
+
+- **MARK IS ももち**：大型購物中心，餐廳・美食街・室內兒童遊憩設施齊全，雨天照常；午餐與午後咖啡皆可在此解決
+- **ももち海浜公園・マリゾン**：白沙人工海灘與濱海設施，晴天可散步拍照，**大雨則跳過**
+- [📍 MARK IS 福岡ももち Google Maps](https://www.google.com/maps/dir/?api=1&destination=MARK+IS+福岡ももち) | [📍 ももち海浜公園](https://www.google.com/maps/dir/?api=1&destination=ももち海浜公園)
+
+---
+
+### 💴 費用估算（4 人・2 大 2 小）
+
+| 項目 | 費用 |
+|------|------|
+| 地下鉄往返（¥260×2×4） | 約 ¥2,080 |
+| 福岡市博物館（大人 ¥200×2，中學生以下免費） | ¥400 |
+| 福岡タワー（大人 ¥800×2 + 小中學生 ¥500×2） | ¥2,600 |
+| 午餐 @ MARK IS（約 ¥1,200/人） | ¥4,800 |
+| **合計** | **約 ¥9,880** |
+
+> 💰 本備案較原熊本一日遊（約 ¥51,240）**省下約 ¥41,000**，主要來自省去新幹線往返指定席。若已預購熊本新幹線指定席，記得及早辦理退票／改期。
+
+---
+
+### ☔ 雨天・臨機備案（Day 3 備案）
+
+| 情境 | 對應 |
+|------|------|
+| **晴／陰** | 照常，含ももち海浜公園濱海散步 |
+| **雨天** | 博物館・福岡タワー・MARK IS 均室內，照常；跳過海浜公園 |
+| **想增加室內點** | **福岡市科学館**（六本松，親子互動展）或 **BOSS E・ZO FUKUOKA**（PayPayドーム旁，室內娛樂）|
+| **餘震再起・避難指示** | 依現場指示就近避難，優先返回博多住宿，暫停外出行程 |
+
+[📍 福岡市博物館](https://www.google.com/maps/dir/?api=1&destination=福岡市博物館+福岡市) | [📍 福岡タワー](https://www.google.com/maps/dir/?api=1&destination=福岡タワー+福岡市) | [📍 福岡市科学館](https://www.google.com/maps/dir/?api=1&destination=福岡市科学館)
+
+---
+
+<details>
+<summary>📦 原熊本一日遊行程（因地震暫時取消，點此展開／保留備日後還原）</summary>
+
+## Day 3（原）　熊本一日遊
 
 ### 🚄 交通計畫（博多 ⇄ 熊本 日歸）
 
@@ -246,7 +337,7 @@
 
 - **四人往返合計**：¥38,640（指定席）
 - ✔️ **暑假週日建議提前購買指定席**，自由席發車時滿座機率高
-- [📍 JR 博多駅](https://www.google.com/maps/search/?api=1&query=JR博多駅) | [📍 JR 熊本駅](https://www.google.com/maps/search/?api=1&query=JR熊本駅)
+- [📍 JR 博多駅](https://www.google.com/maps/dir/?api=1&destination=JR博多駅) | [📍 JR 熊本駅](https://www.google.com/maps/dir/?api=1&destination=JR熊本駅)
 
 **當日時序：**
 ```
@@ -276,7 +367,7 @@
 - **開放時間**：8:30–17:00（最終入場 16:30）
 - **入場費**：大人 ¥800 / 中小學生 ¥300
 - **交通**：市電「市役所前」下車，步行約 5 分
-- [📍 熊本城 Google Maps](https://www.google.com/maps/search/?api=1&query=熊本城+熊本市)
+- [📍 熊本城 Google Maps](https://www.google.com/maps/dir/?api=1&destination=熊本城+熊本市)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -310,7 +401,7 @@
 - **開放時間**：8:30–18:00（夏季）
 - **入場費**：大人 ¥400 / 中小學生 ¥200
 - **交通**：市電「水前寺公園」下車，步行約 2 分
-- [📍 水前寺成趣園 Google Maps](https://www.google.com/maps/search/?api=1&query=水前寺成趣園+熊本市)
+- [📍 水前寺成趣園 Google Maps](https://www.google.com/maps/dir/?api=1&destination=水前寺成趣園+熊本市)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -341,7 +432,9 @@
 | **大雨** | 跳過水前寺，改至城附近 **熊本市立博物館**（全室內，¥400/大人） |
 | **颱風・新幹線停駛** | 取消熊本，留博多：**福岡市博物館**（金印展示）+ **MARK IS ももち** |
 
-[📍 熊本城](https://www.google.com/maps/search/?api=1&query=熊本城+熊本市) | [📍 水前寺成趣園](https://www.google.com/maps/search/?api=1&query=水前寺成趣園+熊本市)
+[📍 熊本城](https://www.google.com/maps/dir/?api=1&destination=熊本城+熊本市) | [📍 水前寺成趣園](https://www.google.com/maps/dir/?api=1&destination=水前寺成趣園+熊本市)
+
+</details>
 
 ---
 
@@ -358,7 +451,7 @@
 
 - **四人往返合計（新幹線）**：¥20,240
 - ✔️ **暑假週一建議提前購買指定席**
-- [📍 JR 博多駅](https://www.google.com/maps/search/?api=1&query=JR博多駅) | [📍 JR 小倉駅](https://www.google.com/maps/search/?api=1&query=JR小倉駅) | [📍 JR 門司港駅](https://www.google.com/maps/search/?api=1&query=JR門司港駅)
+- [📍 JR 博多駅](https://www.google.com/maps/dir/?api=1&destination=JR博多駅) | [📍 JR 小倉駅](https://www.google.com/maps/dir/?api=1&destination=JR小倉駅) | [📍 JR 門司港駅](https://www.google.com/maps/dir/?api=1&destination=JR門司港駅)
 
 **當日時序：**
 ```
@@ -388,7 +481,7 @@
 - **旧大阪商船**：橙色八角形建築，觀光案内所（1F 免費入場，¥150/人 2F 展示）
 - **ブルーウィングもじ**：可動橋（跳橋），每日 10:00・11:00・13:00・14:00・15:00 開橋展示（約 60 分一次）
 - **焼きカレー**：門司港名物，周邊多家レトロなカフェ提供（¥1,000–1,200/人）
-- [📍 門司港レトロ地区 Google Maps](https://www.google.com/maps/search/?api=1&query=門司港レトロ地区+北九州市)
+- [📍 門司港レトロ地区 Google Maps](https://www.google.com/maps/dir/?api=1&destination=門司港レトロ地区+北九州市)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -404,7 +497,7 @@
 - 可從船上俯瞰関門海峡全景與関門橋
 - **票價**：大人（中學生以上）¥400 / 小學生 ¥200（各單程）
 - **班次**：日間約 20 分一班（06:00–22:00）
-- [📍 関門連絡船 門司港乗り場 Google Maps](https://www.google.com/maps/search/?api=1&query=関門連絡船+門司港)
+- [📍 関門連絡船 門司港乗り場 Google Maps](https://www.google.com/maps/dir/?api=1&destination=関門連絡船+門司港)
 
 ---
 
@@ -416,7 +509,7 @@
 - **開放時間**：8:00–15:00（週一至週五）
 - ⚠️ **8/3 為週一（平日）**：市場正常開放，寿司屋台數量較週末少，但整體鮮度依然極佳
 - **費用目安**：¥1,500–2,000/人（立食寿司 + 飲料）
-- [📍 唐戸市場 Google Maps](https://www.google.com/maps/search/?api=1&query=唐戸市場+下関市)
+- [📍 唐戸市場 Google Maps](https://www.google.com/maps/dir/?api=1&destination=唐戸市場+下関市)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -433,7 +526,7 @@
 - **開放時間**：9:00–18:00（4–10 月，最終入場 17:30）
 - **入場費**：大人（高中生以上）¥350 / 中小學生 ¥120
 - **交通**：JR 小倉駅から徒歩 15 分；タクシー約 5 分（¥700）
-- [📍 小倉城 Google Maps](https://www.google.com/maps/search/?api=1&query=小倉城+北九州市)
+- [📍 小倉城 Google Maps](https://www.google.com/maps/dir/?api=1&destination=小倉城+北九州市)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -454,7 +547,7 @@
 - **開放時間**：11:00–19:00（週二休館；暑假期間確認延長）
 - **入場費**：大人 ¥480 / 中學生 ¥240 / 小學生 ¥120
 - **位置**：リバーウォーク北九州 5F（JR 西小倉駅から徒歩 5 分）
-- [📍 北九州市漫画ミュージアム Google Maps](https://www.google.com/maps/search/?api=1&query=北九州市漫画ミュージアム)
+- [📍 北九州市漫画ミュージアム Google Maps](https://www.google.com/maps/dir/?api=1&destination=北九州市漫画ミュージアム)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -466,8 +559,8 @@
 
 ### 🛍️ リバーウォーク北九州＆魚町銀天街（購物）
 
-- **リバーウォーク北九州**：紫川沿いの複合商業施設，餐廳・雜貨・衣服齊全；漫画ミュージアム就在館內 5F　[📍 Google Maps](https://www.google.com/maps/search/?api=1&query=リバーウォーク北九州)
-- **魚町銀天街・京町銀天街**：JR 小倉駅南口直結，日本最早の有蓋アーケード商店街；藥妝・土産・輕食一應俱全　[📍 Google Maps](https://www.google.com/maps/search/?api=1&query=魚町銀天街+小倉)
+- **リバーウォーク北九州**：紫川沿いの複合商業施設，餐廳・雜貨・衣服齊全；漫画ミュージアム就在館內 5F　[📍 Google Maps](https://www.google.com/maps/dir/?api=1&destination=リバーウォーク北九州)
+- **魚町銀天街・京町銀天街**：JR 小倉駅南口直結，日本最早の有蓋アーケード商店街；藥妝・土産・輕食一應俱全　[📍 Google Maps](https://www.google.com/maps/dir/?api=1&destination=魚町銀天街+小倉)
 
 ---
 
@@ -507,7 +600,7 @@
 | **大雨** | 省略門司港戶外散策 → 直接前往唐戸市場（全室內）→ 小倉城 → 漫画ミュージアム（全室內） |
 | **強風・連絡船停航** | 省略唐戸市場 → 改在門司港享用焼きカレー → 小倉城 → 漫画ミュージアム + 魚町銀天街 |
 
-[📍 門司港レトロ地区](https://www.google.com/maps/search/?api=1&query=門司港レトロ地区) | [📍 北九州市漫画ミュージアム](https://www.google.com/maps/search/?api=1&query=北九州市漫画ミュージアム) | [📍 唐戸市場](https://www.google.com/maps/search/?api=1&query=唐戸市場+下関市)
+[📍 門司港レトロ地区](https://www.google.com/maps/dir/?api=1&destination=門司港レトロ地区) | [📍 北九州市漫画ミュージアム](https://www.google.com/maps/dir/?api=1&destination=北九州市漫画ミュージアム) | [📍 唐戸市場](https://www.google.com/maps/dir/?api=1&destination=唐戸市場+下関市)
 
 ---
 ## Day 5　8/4（二）　別府・地獄溫泉一日遊
@@ -521,7 +614,7 @@
 
 - **四人往返合計**：¥33,040（建議提前購買指定席，暑假列車擠）
 - **備選**：高速巴士（博多バスターミナル → 別府北浜）約 ¥3,250/人、2.5 小時，可提前網路預約
-- [📍 JR 博多駅](https://www.google.com/maps/search/?api=1&query=JR博多駅) | [📍 JR 別府駅](https://www.google.com/maps/search/?api=1&query=JR別府駅)
+- [📍 JR 博多駅](https://www.google.com/maps/dir/?api=1&destination=JR博多駅) | [📍 JR 別府駅](https://www.google.com/maps/dir/?api=1&destination=JR別府駅)
 
 **當日時序參考：**
 ```
@@ -541,7 +634,7 @@
 
 - 鈷藍色 98°C 溫泉（海地獄）、灰色泥漿泡泡（鬼石坊主）
 - 地獄巡遊一日通票 大人 ¥2,200 / 孩子 ¥1,000（現場買有優惠券可省錢）
-- [📍 海地獄 Google Maps](https://www.google.com/maps/search/?api=1&query=海地獄+別府市) | [📍 鬼石坊主地獄](https://www.google.com/maps/search/?api=1&query=鬼石坊主地獄+別府)
+- [📍 海地獄 Google Maps](https://www.google.com/maps/dir/?api=1&destination=海地獄+別府市) | [📍 鬼石坊主地獄](https://www.google.com/maps/dir/?api=1&destination=鬼石坊主地獄+別府)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -555,7 +648,7 @@
 ### ♨️ 地獄蒸工房 鉄輪（午餐）
 
 - 自己動手蒸溫泉蛋、蔬菜、海鮮，使用 98°C 地熱蒸氣
-- [📍 地獄蒸工房 鉄輪 Google Maps](https://www.google.com/maps/search/?api=1&query=地獄蒸工房+鉄輪+別府)
+- [📍 地獄蒸工房 鉄輪 Google Maps](https://www.google.com/maps/dir/?api=1&destination=地獄蒸工房+鉄輪+別府)
 
 📖 **推薦參考文章**
 | 文章標題 | 來源 | 特色 |
@@ -568,7 +661,7 @@
 ### 🩸 血の池地獄・龍巻地獄
 
 - 血紅色溫泉（血池）、日本唯一天然間歇泉（龍巻，約 30–40 分噴發一次）
-- [📍 血の池地獄 Google Maps](https://www.google.com/maps/search/?api=1&query=血の池地獄+別府) | [📍 龍巻地獄](https://www.google.com/maps/search/?api=1&query=龍巻地獄+別府)
+- [📍 血の池地獄 Google Maps](https://www.google.com/maps/dir/?api=1&destination=血の池地獄+別府) | [📍 龍巻地獄](https://www.google.com/maps/dir/?api=1&destination=龍巻地獄+別府)
 
 📖 **推薦參考文章**
 
@@ -583,7 +676,7 @@
 | **小雨** | 地獄巡遊維持（地獄有遮蓋觀賞區） |
 | **大雨 / 颱風** | 取消別府行程 → 留博多：**福岡市博物館**（國寶金印展示，大人 ¥600）+ **MARK IS ももち**（室內大型商場） |
 
-[📍 福岡市博物館](https://www.google.com/maps/search/?api=1&query=福岡市博物館) | [📍 MARK IS ももち](https://www.google.com/maps/search/?api=1&query=MARK+IS+福岡ももち)
+[📍 福岡市博物館](https://www.google.com/maps/dir/?api=1&destination=福岡市博物館) | [📍 MARK IS ももち](https://www.google.com/maps/dir/?api=1&destination=MARK+IS+福岡ももち)
 
 ---
 
@@ -593,7 +686,7 @@
 
 - 550m 地下街、藥妝、食品、雜貨一站式採購
 - **建議時間**：09:30–15:30（留出 16:00 前完成購物並前往久留米）
-- [📍 天神地下街 Google Maps](https://www.google.com/maps/search/?api=1&query=天神地下街+福岡)
+- [📍 天神地下街 Google Maps](https://www.google.com/maps/dir/?api=1&destination=天神地下街+福岡)
 
 > 👦 **國二哥哥（13:00–15:00）**：天神商圈的 **ACOS 福岡天神店**（動漫週邊・扭蛋）或 **Round1 天神店**，自主逛 1–1.5 小時。**15:30 全家集合飯店**，放完戰利品後分頭行動。
 
@@ -612,7 +705,7 @@
 #### ⚾ 爸爸＋國二哥哥　→　福岡巨蛋職棒觀戰
 
 - **賽事**：福岡ソフトバンクホークス vs 北海道日本ハムファイターズ
-- **場館**：みずほPayPayドーム福岡（福岡巨蛋）　[📍 Google Maps](https://www.google.com/maps/search/?api=1&query=みずほPayPayドーム福岡)
+- **場館**：みずほPayPayドーム福岡（福岡巨蛋）　[📍 Google Maps](https://www.google.com/maps/dir/?api=1&destination=みずほPayPayドーム福岡)
 - **開賽**：18:00（建議 **17:00 前入場**，感受球場氣氛）
 - **門票**：✅ 已購（Klook 憑證，入場前出示 QR Code）
 - **交通**：天神 → 地下鐵空港線「唐人町」駅，步行約 10 分 ／ 或タクシー約 10 分（¥800–1,000）
@@ -667,7 +760,7 @@
 | **花火取消** | 媽媽＋弟弟改至福岡巨蛋與爸爸哥哥會合看職棒（若剩餘票）；或改 **博多水炊き（二○加屋長介）**，需提前備案預約 |
 | **職棒延期・雨天** | みずほPayPayドーム 為室內球場，雨天照常進行 |
 
-[📍 二○加屋長介 博多](https://www.google.com/maps/search/?api=1&query=二加屋長介+博多)
+[📍 二○加屋長介 博多](https://www.google.com/maps/dir/?api=1&destination=二加屋長介+博多)
 
 ---
 
@@ -679,7 +772,7 @@
 ### 🎁 博多銘品蔵＆最後採購
 
 - 博多駅地下「博多銘品蔵」集中採購明太子、博多通りもん、ひよ子等伴手禮
-- [📍 博多銘品蓏 Google Maps](https://www.google.com/maps/search/?api=1&query=博多銘品蓏+博多駅)
+- [📍 博多銘品蓏 Google Maps](https://www.google.com/maps/dir/?api=1&destination=博多銘品蓏+博多駅)
 - **建議 11:30 前完成採購**，留出午餐與休息時間
 
 📖 **推薦參考文章**
@@ -709,7 +802,7 @@
 |------|------|------|------|
 | 博多駅 → 福岡空港國際線ターミナル | 福岡市地下鐵ㇷ空港線 | 約 5 分 | ¥260/人 |
 
-[📍 JR 博多駅](https://www.google.com/maps/search/?api=1&query=JR博多駅) → [📍 福岡空港國際線ターミナル](https://www.google.com/maps/search/?api=1&query=福岡空港國際線ターミナル)
+[📍 JR 博多駅](https://www.google.com/maps/dir/?api=1&destination=JR博多駅) → [📍 福岡空港國際線ターミナル](https://www.google.com/maps/dir/?api=1&destination=福岡空港國際線ターミナル)
 
 ---
 
@@ -755,7 +848,7 @@
 
 | 項目 | 資訊 |
 |------|------|
-| **飯店名稱** | [福岡皇家花園飯店](https://www.google.com/maps/search/?api=1&query=福岡皇家花園飯店+博多) |
+| **飯店名稱** | [福岡皇家花園飯店](https://www.google.com/maps/dir/?api=1&destination=福岡皇家花園飯店+博多) |
 | **入住（Check-in）** | 7/31（五）CI110 抵達後辦理，通常 15:00；行李可提前寄放（約 11:00 輕裝出發）|
 | **退房（Check-out）** | 8/6（四）通常 11:00 前，行李可寄放至 17:00 出發前取回 |
 | **住宿晚數** | 6 晚（7/31・8/1・8/2・8/3・8/4・8/5）|
